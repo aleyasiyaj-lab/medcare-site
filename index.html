@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medcare Telehealth | GLP-1, Weight Loss & Urgent Care Online</title>
+  <meta name="description" content="Board-certified telehealth care from home. GLP-1 weight loss programs, urgent care, and general visits. Licensed in NY & FL. No insurance needed." />
+  <meta name="keywords" content="telehealth, GLP-1, semaglutide, tirzepatide, weight loss, urgent care online, online doctor, no insurance, New York, Florida" />
+  <link rel="canonical" href="https://medcaretelehealth.org/" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://medcaretelehealth.org/" />
+  <meta property="og:title" content="Medcare Telehealth | GLP-1, Weight Loss & Urgent Care Online" />
+  <meta property="og:description" content="Board-certified telehealth care from home. GLP-1 weight loss, urgent care, and general visits. Licensed in NY & FL. No insurance needed." />
+  <meta property="og:image" content="https://medcaretelehealth.org/assets/logo-black.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Medcare Telehealth | GLP-1, Weight Loss & Urgent Care" />
+  <meta name="twitter:description" content="See a board-certified provider today. GLP-1 programs, urgent care, and general visits — no insurance needed." />
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Medcare Telehealth",
+    "url": "https://medcaretelehealth.org",
+    "logo": "https://medcaretelehealth.org/assets/logo-black.png",
+    "description": "Board-certified telehealth care. GLP-1 weight loss programs, urgent care, and general health visits. Licensed in NY and FL.",
+    "medicalSpecialty": ["GeneralPractice", "PrimaryCare"],
+    "availableService": [
+      {
+        "@type": "MedicalTherapy",
+        "name": "GLP-1 Weight Loss Program",
+        "description": "Clinically supervised semaglutide and tirzepatide programs for weight loss.",
+        "offers": { "@type": "Offer", "price": "149", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Urgent Care Visit",
+        "description": "Online urgent care for infections, UTIs, rashes, and common illnesses.",
+        "offers": { "@type": "Offer", "price": "75", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "General Health Visit",
+        "description": "Medication refills, chronic condition management, referrals, and preventive care.",
+        "offers": { "@type": "Offer", "price": "85", "priceCurrency": "USD" }
+      }
+    ],
+    "areaServed": ["New York", "Florida"],
+    "priceRange": "$75 - $149",
+    "sameAs": []
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2563EB;
+      --blue-dark: #1d4ed8;
+      --blue-light: #eff6ff;
+      --blue-mid: #dbeafe;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg-alt: #f9fafb;
+      --green: #059669;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(37,99,235,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 72px; width: auto; display: block; }
+    .footer-brand .nav-logo img { height: 36px; width: auto; }
+    .nav-links a.btn-primary { background: var(--blue); padding: 10px 20px; border-radius: 8px; color: white !important; font-weight: 600; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .btn { display: inline-block; padding: 11px 24px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; border: none; }
+    .btn-primary, a.btn-primary { background: var(--blue) !important; color: #fff !important; }
+    .btn-primary:hover, a.btn-primary:hover { background: var(--blue-dark) !important; color: #fff !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,99,235,0.3); }
+    .btn-outline, a.btn-outline { background: transparent; color: var(--blue) !important; border: 2px solid var(--blue); }
+    .btn-outline:hover, a.btn-outline:hover { background: var(--blue-light); }
+    .btn-lg { padding: 15px 36px; font-size: 1rem; border-radius: 10px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #f0f6ff 0%, #fff 60%);
+      padding: 90px 5% 80px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      min-height: calc(100vh - 68px);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-light); color: var(--blue);
+      padding: 6px 14px; border-radius: 100px; font-size: 0.82rem; font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 8px; height: 8px; background: var(--green); border-radius: 50%; display: block; }
+    .hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 20px; }
+    .hero h1 span { color: var(--blue); }
+    .hero p { font-size: 1.1rem; color: var(--muted); margin-bottom: 36px; max-width: 480px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
+    .hero-trust { display: flex; gap: 24px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 500; color: var(--muted); }
+    .trust-item svg { color: var(--green); flex-shrink: 0; }
+    .hero-card {
+      background: #fff; border-radius: 20px; padding: 36px;
+      box-shadow: 0 20px 60px rgba(37,99,235,0.12);
+      border: 1px solid var(--blue-mid);
+    }
+    .hero-card-title { font-size: 1rem; font-weight: 700; margin-bottom: 20px; color: var(--text); }
+    .service-pill {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--bg-alt); border-radius: 10px; padding: 14px 16px;
+      margin-bottom: 10px; cursor: pointer; transition: all 0.2s;
+      border: 2px solid transparent;
+    }
+    .service-pill:hover { border-color: var(--blue); background: var(--blue-light); }
+    .service-pill-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .service-pill-icon.blue { background: var(--blue-light); }
+    .service-pill-icon.green { background: #ecfdf5; }
+    .service-pill-icon.purple { background: #f5f3ff; }
+    .service-pill-text { flex: 1; }
+    .service-pill-text strong { display: block; font-size: 0.9rem; font-weight: 600; }
+    .service-pill-text span { font-size: 0.8rem; color: var(--muted); }
+    .service-pill-price { font-size: 0.95rem; font-weight: 700; color: var(--blue); }
+    .hero-card-footer { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .hero-card-footer a { display: inline-flex; align-items: center; gap: 6px; background: var(--blue); color: #fff; padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
+    .hero-card-footer a:hover { background: var(--blue-dark); }
+    .hero-card-footer p { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--text); color: #fff;
+      padding: 20px 5%;
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .trust-bar-item { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; font-weight: 500; }
+    .trust-bar-item svg { opacity: 0.7; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 90px 5%; }
+    .section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 560px; }
+    .section-header { margin-bottom: 56px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    /* ── SERVICES ── */
+    .services { background: var(--bg-alt); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .service-card {
+      background: #fff; border-radius: var(--radius); padding: 36px;
+      border: 1px solid var(--border); transition: all 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .service-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); border-color: var(--blue-mid); }
+    .service-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; }
+    .service-icon.blue { background: var(--blue-light); }
+    .service-icon.green { background: #ecfdf5; }
+    .service-icon.orange { background: #fff7ed; }
+    .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; flex: 1; }
+    .service-includes { list-style: none; margin-bottom: 24px; display: flex; flex-direction: column; gap: 8px; }
+    .service-includes li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.87rem; color: var(--muted); }
+    .service-includes li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .service-price { font-size: 1.5rem; font-weight: 800; color: var(--blue); }
+    .service-price span { font-size: 0.85rem; font-weight: 400; color: var(--muted); }
+    .service-cta { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: var(--blue-light); color: var(--blue); border-radius: 8px; padding: 12px 20px; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; margin-top: 16px; }
+    .service-cta:hover { background: var(--blue); color: #fff; }
+    .service-tag { display: inline-block; background: var(--green); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* ── HOW IT WORKS ── */
+    .hiw-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; position: relative; }
+    .hiw-step { text-align: center; padding: 36px 24px; background: var(--bg-alt); border-radius: var(--radius); position: relative; }
+    .hiw-num { width: 48px; height: 48px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; margin: 0 auto 20px; }
+    .hiw-step h4 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .hiw-step p { font-size: 0.88rem; color: var(--muted); }
+    .hiw-icon { font-size: 2rem; margin-bottom: 14px; }
+
+    /* ── PRICING ── */
+    .pricing { background: var(--bg-alt); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .pricing-card {
+      background: #fff; border-radius: var(--radius); padding: 36px;
+      border: 2px solid var(--border); transition: all 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .pricing-card.featured { border-color: var(--blue); position: relative; }
+    .pricing-card.featured::before { content: 'Most Popular'; position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 16px; border-radius: 100px; white-space: nowrap; }
+    .pricing-name { font-size: 0.85rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .pricing-price { font-size: 2.4rem; font-weight: 800; color: var(--text); letter-spacing: -1px; margin-bottom: 4px; }
+    .pricing-price sub { font-size: 1rem; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+    .pricing-note { font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; }
+    .pricing-features { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; }
+    .pricing-features li svg { flex-shrink: 0; margin-top: 2px; }
+    .pricing-cta { display: flex; align-items: center; justify-content: center; background: var(--blue); color: #fff; padding: 14px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; border: none; width: 100%; }
+    .pricing-cta:hover { background: var(--blue-dark); }
+    .pricing-cta.outline { background: transparent; border: 2px solid var(--blue); color: var(--blue); }
+    .pricing-cta.outline:hover { background: var(--blue-light); }
+
+    /* ── INTAKE FORM ── */
+    .intake { background: linear-gradient(135deg, #1e3a8a 0%, var(--blue) 100%); color: #fff; }
+    .intake .section-label { color: #93c5fd; }
+    .intake .section-title { color: #fff; }
+    .intake .section-sub { color: #bfdbfe; }
+    .form-wrap { background: #fff; border-radius: 20px; padding: 48px; margin-top: 48px; box-shadow: 0 32px 80px rgba(0,0,0,0.2); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .form-group input, .form-group select, .form-group textarea {
+      border: 1.5px solid var(--border); border-radius: 8px;
+      padding: 11px 14px; font-size: 0.9rem; font-family: inherit;
+      color: var(--text); background: var(--bg-alt);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+      background: #fff;
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-check { display: flex; gap: 12px; align-items: flex-start; margin-top: 8px; }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--blue); flex-shrink: 0; cursor: pointer; }
+    .form-check label { font-size: 0.85rem; color: var(--muted); cursor: pointer; }
+    .form-check label a { color: var(--blue); text-decoration: underline; }
+    .form-submit { margin-top: 28px; display: flex; justify-content: center; }
+    .form-submit button { background: var(--blue); color: #fff; border: none; border-radius: 10px; padding: 16px 48px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .form-submit button:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.3); }
+    .form-note { text-align: center; margin-top: 16px; font-size: 0.8rem; color: var(--muted); }
+    .form-success { display: none; text-align: center; padding: 48px 24px; }
+    .form-success .success-icon { font-size: 3rem; margin-bottom: 16px; }
+    .form-success h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
+    .form-success p { color: var(--muted); }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q { width: 100%; background: none; border: none; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.97rem; font-weight: 600; color: var(--text); cursor: pointer; font-family: inherit; text-align: left; gap: 16px; }
+    .faq-q svg { flex-shrink: 0; transition: transform 0.3s; }
+    .faq-q.open svg { transform: rotate(180deg); }
+    .faq-a { display: none; padding-bottom: 20px; font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+    .faq-a.open { display: block; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text); color: #d1d5db;
+      padding: 60px 5% 30px;
+    }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 280px; }
+    .footer-col h5 { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col a { display: block; font-size: 0.85rem; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid #374151; padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; }
+    .footer-licenses { display: flex; gap: 12px; flex-wrap: wrap; }
+    .license-badge { background: #374151; padding: 4px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 500; }
+
+    /* ── STATES BAR ── */
+    .states { padding: 60px 5%; text-align: center; background: var(--blue-light); }
+    .states h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--blue); }
+    .states-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .state-badge { background: #fff; border: 2px solid var(--blue-mid); border-radius: 10px; padding: 12px 24px; font-weight: 700; font-size: 0.95rem; color: var(--text); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 60px 5%; min-height: auto; }
+      .hero-card { display: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: #fff; padding: 20px 5%; border-bottom: 1px solid var(--border); gap: 16px; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .trust-bar { gap: 24px; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      section { padding: 60px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="assets/logo-black.png" alt="Medcare" />
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#howitworks">How It Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#book" class="btn btn-primary">Book a Visit</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">Now accepting patients in NY &amp; FL</div>
+    <h1>Healthcare that <span>fits your life</span>, not the other way around.</h1>
+    <p>Board-certified care from your phone or computer. GLP-1 weight loss programs, urgent care visits, and general health — no insurance needed, no waiting room.</p>
+    <div class="hero-ctas">
+      <a href="#book" class="btn btn-primary btn-lg">Book a Visit →</a>
+      <a href="#services" class="btn btn-outline btn-lg">See Services</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Board-certified NP
+      </div>
+      <div class="trust-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Licensed in NY &amp; FL
+      </div>
+      <div class="trust-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        HIPAA secure
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="hero-card">
+      <div class="hero-card-title">What would you like help with today?</div>
+      <div class="service-pill" onclick="window.location='#book'">
+        <div class="service-pill-icon blue">💊</div>
+        <div class="service-pill-text">
+          <strong>GLP-1 Weight Loss</strong>
+          <span>Semaglutide &amp; tirzepatide programs</span>
+        </div>
+        <div class="service-pill-price">From $149</div>
+      </div>
+      <div class="service-pill" onclick="window.location='#book'">
+        <div class="service-pill-icon green">🩺</div>
+        <div class="service-pill-text">
+          <strong>Urgent Care Visit</strong>
+          <span>Infections, rashes, UTIs &amp; more</span>
+        </div>
+        <div class="service-pill-price">$75</div>
+      </div>
+      <div class="service-pill" onclick="window.location='#book'">
+        <div class="service-pill-icon purple">🏥</div>
+        <div class="service-pill-text">
+          <strong>General Health Visit</strong>
+          <span>Checkups, referrals &amp; medication refills</span>
+        </div>
+        <div class="service-pill-price">$85</div>
+      </div>
+      <div class="hero-card-footer">
+        <a href="#book">Book Now →</a>
+        <p>Response within 2 hours<br>Mon–Sat, 8am–8pm</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-item">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    HIPAA Compliant &amp; Secure
+  </div>
+  <div class="trust-bar-item">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Same-Day Appointments Available
+  </div>
+  <div class="trust-bar-item">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    100% Telehealth — No Commute
+  </div>
+  <div class="trust-bar-item">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    No Insurance Required
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-label">Our Services</div>
+    <div class="section-title">Everything you need, online.</div>
+    <div class="section-sub">From weight loss programs to same-day sick visits — quality care delivered to your screen, not your waiting room.</div>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-tag">Most Popular</div>
+      <div class="service-icon blue">💊</div>
+      <h3>GLP-1 Weight Loss Program</h3>
+      <p>Clinically supervised semaglutide and tirzepatide programs. Real medication, real results, with ongoing monitoring and support from your provider.</p>
+      <ul class="service-includes">
+        <li>Initial medical consultation & health screening</li>
+        <li>GLP-1 prescription (semaglutide or tirzepatide)</li>
+        <li>Monthly provider check-ins</li>
+        <li>Medication adjustments as needed</li>
+        <li>Nutrition & lifestyle guidance</li>
+        <li>Ongoing messaging support</li>
+      </ul>
+      <div class="service-price">$149 <span>/ initial visit</span></div>
+      <div class="service-price" style="font-size:1rem;margin-top:4px;">$99 <span>/ month follow-up</span></div>
+      <a href="#book" class="service-cta">Start Program →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon green">🩺</div>
+      <h3>Urgent Care Visit</h3>
+      <p>Don't waste hours in an urgent care waiting room. See a provider fast for common illnesses, infections, and non-emergency conditions.</p>
+      <ul class="service-includes">
+        <li>Sinus infections &amp; upper respiratory</li>
+        <li>UTIs &amp; bladder infections</li>
+        <li>Skin conditions &amp; rashes</li>
+        <li>Ear &amp; eye infections</li>
+        <li>Nausea, vomiting &amp; stomach issues</li>
+        <li>Prescriptions sent to your pharmacy</li>
+      </ul>
+      <div class="service-price">$75 <span>/ visit</span></div>
+      <a href="#book" class="service-cta">Book Urgent Visit →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon orange">🏥</div>
+      <h3>General Health Visit</h3>
+      <p>Preventive care, chronic condition management, medication refills, referrals, and more — handled with the same care you'd get in person.</p>
+      <ul class="service-includes">
+        <li>Medication refills &amp; management</li>
+        <li>Chronic condition check-ins (diabetes, hypertension, etc.)</li>
+        <li>Preventive health screening discussions</li>
+        <li>Specialist referrals</li>
+        <li>Lab order requests</li>
+        <li>General health Q&amp;A</li>
+      </ul>
+      <div class="service-price">$85 <span>/ visit</span></div>
+      <a href="#book" class="service-cta">Book General Visit →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="howitworks">
+  <div class="section-header center">
+    <div class="section-label">How It Works</div>
+    <div class="section-title">From booking to prescription in under an hour.</div>
+    <div class="section-sub">Three simple steps — no forms to mail in, no waiting room, no hassle.</div>
+  </div>
+  <div class="hiw-steps">
+    <div class="hiw-step">
+      <div class="hiw-num">1</div>
+      <div class="hiw-icon">📋</div>
+      <h4>Book &amp; Complete Intake</h4>
+      <p>Choose your service, fill out a short health intake form, and pay securely online. Takes about 3 minutes.</p>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">2</div>
+      <div class="hiw-icon">📱</div>
+      <h4>Meet Your Provider</h4>
+      <p>Connect via secure video or phone call. Your board-certified NP reviews your intake, asks questions, and evaluates your needs.</p>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">3</div>
+      <div class="hiw-icon">💊</div>
+      <h4>Get Treated</h4>
+      <p>Receive your prescription sent directly to your local pharmacy or delivered to your door. Follow-ups scheduled as needed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATES -->
+<div class="states">
+  <h3>Currently licensed and accepting patients in:</h3>
+  <div class="states-badges">
+    <div class="state-badge">🗽 New York (NY)</div>
+    <div class="state-badge">🌴 Florida (FL)</div>
+  </div>
+  <p style="margin-top:16px; font-size:0.85rem; color:var(--muted);">More states coming soon. Enter your email on the intake form to be notified.</p>
+</div>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-header center">
+    <div class="section-label">Pricing</div>
+    <div class="section-title">Transparent pricing. No surprises.</div>
+    <div class="section-sub">Self-pay only — no insurance paperwork, no hidden fees. What you see is what you pay.</div>
+  </div>
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <div class="pricing-name">Urgent Care</div>
+      <div class="pricing-price">$75<sub>/visit</sub></div>
+      <div class="pricing-note">One-time payment. No subscription.</div>
+      <ul class="pricing-features">
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Video or phone consultation
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Prescription sent to pharmacy
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Visit summary provided
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Same-day availability (most days)
+        </li>
+      </ul>
+      <button class="pricing-cta outline" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Book Now</button>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-name">General Visit</div>
+      <div class="pricing-price">$85<sub>/visit</sub></div>
+      <div class="pricing-note">One-time payment. No subscription.</div>
+      <ul class="pricing-features">
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Video or phone consultation
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Medication refills &amp; referrals
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Chronic condition management
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Lab order requests
+        </li>
+      </ul>
+      <button class="pricing-cta outline" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Book Now</button>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-name">GLP-1 Weight Loss</div>
+      <div class="pricing-price">$149<sub>/start</sub></div>
+      <div class="pricing-note">Then $99/month for ongoing management.</div>
+      <ul class="pricing-features">
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Full medical evaluation &amp; screening
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          GLP-1 prescription (sema or tirz)
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Monthly check-in visits
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Dose adjustments as needed
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Nutrition &amp; lifestyle guidance
+        </li>
+        <li>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Cancel anytime — no contracts
+        </li>
+      </ul>
+      <button class="pricing-cta" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Start Program</button>
+    </div>
+
+  </div>
+  <p style="text-align:center; margin-top:24px; font-size:0.82rem; color:var(--muted);">Medication costs are separate and vary by pharmacy. We can recommend affordable options.</p>
+</section>
+
+<!-- INTAKE / BOOK -->
+<section class="intake" id="book">
+  <div class="section-header">
+    <div class="section-label">Book Your Visit</div>
+    <div class="section-title">Ready to get started?</div>
+    <div class="section-sub">Fill out the form below and we'll reach out to confirm your appointment time within 2 hours.</div>
+  </div>
+  <div class="form-wrap">
+    <form id="intakeForm">
+      <div id="formFields">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth *</label>
+            <input type="date" id="dob" name="dob" required />
+          </div>
+          <div class="form-group">
+            <label for="state">State *</label>
+            <select id="state" name="state" required>
+              <option value="">Select your state...</option>
+              <option value="NY">New York (NY)</option>
+              <option value="FL">Florida (FL)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+          </div>
+          <div class="form-group full">
+            <label for="service">Service Requested *</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service...</option>
+              <option value="glp1-initial">GLP-1 Weight Loss — Initial Consultation ($149)</option>
+              <option value="glp1-followup">GLP-1 Weight Loss — Monthly Follow-Up ($99)</option>
+              <option value="urgent">Urgent Care Visit ($75)</option>
+              <option value="general">General Health Visit ($85)</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="reason">Reason for Visit / Chief Complaint *</label>
+            <textarea id="reason" name="reason" placeholder="Briefly describe what you're experiencing or what you'd like to address..." required></textarea>
+          </div>
+          <div class="form-group full">
+            <label for="medications">Current Medications</label>
+            <textarea id="medications" name="medications" placeholder="List any medications you're currently taking (or type 'None')..." style="min-height:80px;"></textarea>
+          </div>
+          <div class="form-group full">
+            <label for="allergies">Known Allergies</label>
+            <input type="text" id="allergies" name="allergies" placeholder="List allergies or type 'NKDA' (no known drug allergies)" />
+          </div>
+          <div class="form-group full">
+            <div class="form-check">
+              <input type="checkbox" id="consent" name="consent" required />
+              <label for="consent">I consent to telehealth services and understand this is a self-pay visit. I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. *</label>
+            </div>
+          </div>
+          <div class="form-group full">
+            <div class="form-check">
+              <input type="checkbox" id="hipaa" name="hipaa" required />
+              <label for="hipaa">I acknowledge the <a href="#">HIPAA Notice of Privacy Practices</a>. *</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit">Submit Intake Form →</button>
+        </div>
+        <div class="form-note">🔒 Your information is encrypted and stored securely in compliance with HIPAA. We will never sell your data.</div>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✅</div>
+        <h3>We received your request!</h3>
+        <p>Thanks for reaching out. A member of our team will contact you within 2 hours to confirm your appointment time.<br><br>Check your email for a confirmation.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-header center">
+    <div class="section-label">FAQ</div>
+    <div class="section-title">Common questions, answered.</div>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you accept insurance?
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-a">No — Medcare is a self-pay telehealth practice. We do not bill insurance. This keeps our prices transparent, our appointments available quickly, and our overhead low so we can pass savings to you. We can provide a superbill if you'd like to submit to your insurance for potential reimbursement.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What states do you serve?
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-a">We are currently licensed to practice in New York (NY) and Florida (FL). You must be physically located in one of these states at the time of your visit. We are actively working to expand to additional states — join our waitlist on the intake form to be notified.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Who are the providers at Medcare?
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-a">Our care is delivered by a board-certified Nurse Practitioner (NP) licensed in New York and Florida. NPs are fully trained and authorized to diagnose, treat, and prescribe — the same as a physician in most states including NY and FL.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How does the GLP-1 program work?
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-a">After your initial consultation ($149), your provider will evaluate whether you're a good candidate for GLP-1 therapy (semaglutide or tirzepatide). If approved, a prescription will be sent to a pharmacy of your choice or a compounding pharmacy. Monthly follow-ups ($99) include dose adjustments, side effect management, and progress reviews. The medication cost is separate and varies by pharmacy.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How quickly can I get an appointment?
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-a">We typically offer same-day or next-day appointments Monday through Saturday, 8am–8pm. After you submit your intake form, our team will contact you within 2 hours to confirm a time that works for you.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is my information private and secure?
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-a">Yes. Medcare is fully HIPAA compliant. All patient data is encrypted in transit and at rest. We use secure, HIPAA-compliant platforms for communication and video visits. We will never sell or share your health information without your explicit consent.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What if I need an in-person exam or lab work?
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-a">For conditions that require physical examination or diagnostic testing, we'll provide appropriate referrals. We can also order labs that you can complete at a local lab facility (Quest, LabCorp, etc.) and review results with you in a follow-up visit.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <img src="assets/logo-white.png" alt="Medcare" />
+      </div>
+      <p>Board-certified telehealth care for New York and Florida residents. No insurance. No waiting room. Just quality care.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <a href="#services">GLP-1 Weight Loss</a>
+      <a href="#services">Urgent Care</a>
+      <a href="#services">General Health</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="#howitworks">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">HIPAA Notice</a>
+      <a href="#">Telehealth Consent</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 Medcare Telehealth. All rights reserved.</div>
+    <div class="footer-licenses">
+      <div class="license-badge">Licensed in NY</div>
+      <div class="license-badge">Licensed in FL</div>
+      <div class="license-badge">HIPAA Compliant</div>
+    </div>
+    <div style="font-size:0.78rem; color:#6b7280; max-width:400px; text-align:right;">
+      Medcare Telehealth provides general medical care. For emergencies, call 911. This is not a substitute for emergency medical services.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a.open').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q.open').forEach(q => q.classList.remove('open'));
+    if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
+  }
+  document.getElementById('intakeForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('formFields').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    // TODO: replace with actual HIPAA-compliant form endpoint (JotForm HIPAA, Formstack, etc.)
+  });
+  // Close nav when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
