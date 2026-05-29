@@ -18,38 +18,68 @@
   <meta name="twitter:description" content="See a board-certified provider today. GLP-1 programs, urgent care, and general visits — no insurance needed." />
   <!-- Schema -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "Medcare Telehealth",
-    "url": "https://medcaretelehealth.org",
-    "logo": "https://medcaretelehealth.org/assets/logo-black.png",
-    "description": "Board-certified telehealth care. GLP-1 weight loss programs, urgent care, and general health visits. Licensed in NY and FL.",
-    "medicalSpecialty": ["GeneralPractice", "PrimaryCare"],
-    "availableService": [
-      {
-        "@type": "MedicalTherapy",
-        "name": "GLP-1 Weight Loss Program",
-        "description": "Clinically supervised semaglutide and tirzepatide programs for weight loss.",
-        "offers": { "@type": "Offer", "price": "149", "priceCurrency": "USD" }
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "MedCare",
+      "legalName": "NY Medical Providers PLLC D/B/A MedCare",
+      "url": "https://medcaretelehealth.org",
+      "logo": "https://medcaretelehealth.org/assets/logo-black.png",
+      "description": "Board-certified telehealth care. GLP-1 weight loss programs, urgent care, and general health visits. Licensed in NY and FL.",
+      "medicalSpecialty": ["GeneralPractice", "PrimaryCare"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "447 Broadway, 2nd Floor, #1572",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "postalCode": "10013",
+        "addressCountry": "US"
       },
-      {
-        "@type": "MedicalTherapy",
-        "name": "Urgent Care Visit",
-        "description": "Online urgent care for infections, UTIs, rashes, and common illnesses.",
-        "offers": { "@type": "Offer", "price": "75", "priceCurrency": "USD" }
+      "areaServed": ["New York", "Florida"],
+      "priceRange": "$75 - $149",
+      "availableService": [
+        {
+          "@type": "MedicalTherapy",
+          "name": "GLP-1 Weight Loss Program",
+          "description": "Clinically supervised semaglutide and tirzepatide programs for weight loss.",
+          "offers": { "@type": "Offer", "price": "149", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Urgent Care Visit",
+          "description": "Online urgent care for infections, UTIs, rashes, and common illnesses.",
+          "offers": { "@type": "Offer", "price": "75", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "General Health Visit",
+          "description": "Medication refills, chronic condition management, referrals, and preventive care.",
+          "offers": { "@type": "Offer", "price": "85", "priceCurrency": "USD" }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "MedCare",
+      "legalName": "Medcare Telehealth Inc. D/B/A MedCare",
+      "url": "https://medcaretelehealth.org",
+      "logo": "https://medcaretelehealth.org/assets/logo-black.png",
+      "description": "Board-certified telehealth care. GLP-1 weight loss programs, urgent care, and general health visits. Licensed in NY and FL.",
+      "medicalSpecialty": ["GeneralPractice", "PrimaryCare"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "425 W Colonial Dr, Ste 303",
+        "addressLocality": "Orlando",
+        "addressRegion": "FL",
+        "postalCode": "32804",
+        "addressCountry": "US"
       },
-      {
-        "@type": "MedicalTherapy",
-        "name": "General Health Visit",
-        "description": "Medication refills, chronic condition management, referrals, and preventive care.",
-        "offers": { "@type": "Offer", "price": "85", "priceCurrency": "USD" }
-      }
-    ],
-    "areaServed": ["New York", "Florida"],
-    "priceRange": "$75 - $149",
-    "sameAs": []
-  }
+      "areaServed": ["New York", "Florida"],
+      "priceRange": "$75 - $149"
+    }
+  ]
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -783,14 +813,18 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div>&copy; 2026 Medcare Telehealth. All rights reserved.</div>
+    <div style="display:flex;flex-direction:column;gap:6px;">
+      <div>&copy; 2026 MedCare. All rights reserved.</div>
+      <div style="font-size:0.75rem;color:#6b7280;">NY Medical Providers PLLC D/B/A MedCare &bull; 447 Broadway, 2nd Fl, #1572, New York, NY 10013</div>
+      <div style="font-size:0.75rem;color:#6b7280;">Medcare Telehealth Inc. D/B/A MedCare &bull; 425 W Colonial Dr, Ste 303, Orlando, FL 32804</div>
+    </div>
     <div class="footer-licenses">
       <div class="license-badge">Licensed in NY</div>
       <div class="license-badge">Licensed in FL</div>
       <div class="license-badge">HIPAA Compliant</div>
     </div>
     <div style="font-size:0.78rem; color:#6b7280; max-width:400px; text-align:right;">
-      Medcare Telehealth provides general medical care. For emergencies, call 911. This is not a substitute for emergency medical services.
+      MedCare provides general medical care. For emergencies, call 911. This is not a substitute for emergency medical services.
     </div>
   </div>
 </footer>
