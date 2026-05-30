@@ -103,4 +103,10 @@
   <url><loc>https://medcaretelehealth.org/telehealth-hialeah/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://medcaretelehealth.org/glp1-weight-loss-hialeah/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://medcaretelehealth.org/urgent-care-online-hialeah/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url>
+    <loc>https://medcaretelehealth.org/blog/glp-1-medication-without-insurance/</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
