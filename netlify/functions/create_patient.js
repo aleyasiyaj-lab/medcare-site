@@ -186,14 +186,18 @@ async function tcPost(path, token, payload) {
   }, body);
 }
 
-async function createTCPatient(token, firstName, lastName, dob, gender, phone) {
+async function createTCPatient(token, firstName, lastName, dob, gender, phone, email) {
+  const telecom = [];
+  if (phone) telecom.push({ system: "phone", value: normalizePhone(phone), use: "mobile" });
+  if (email) telecom.push({ system: "email", value: email.trim().toLowerCase() });
+
   const payload = {
     resourceType: "Patient",
     managingOrganization: { reference: `Organization/${TC_FL_ORG_ID}` },
     name: [{ use: "official", family: lastName, given: [firstName] }],
     gender: normalizeGender(gender),
     birthDate: normalizeDobForTC(dob),
-    telecom: phone ? [{ system: "phone", value: normalizePhone(phone), use: "mobile" }] : [],
+    telecom,
     extension: [
       { url: "eligible-programs", value: ["awv"] }
     ],
@@ -222,7 +226,7 @@ async function createTCCoverage(token, patientId, mbi) {
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
-async function createPatient(firstName, lastName, dob, gender, phone) {
+async function createPatient(firstName, lastName, dob, gender, phone, email) {
   try {
     // Run MBI fetch and TC token acquisition in parallel
     const [mbi, tcToken] = await Promise.all([
@@ -235,7 +239,7 @@ async function createPatient(firstName, lastName, dob, gender, phone) {
     }
 
     // Create patient in ThoroughCare
-    const patientId = await createTCPatient(tcToken, firstName, lastName, dob, gender, phone);
+    const patientId = await createTCPatient(tcToken, firstName, lastName, dob, gender, phone, email);
     if (!patientId) {
       return { status: "error", message: "Could not create patient record at this time." };
     }
@@ -285,8 +289,9 @@ exports.handler = async (event) => {
   const dob = args.dob || args.dateOfBirth || "";
   const gender = args.gender || "";
   const phone = args.phone || args.phoneNumber || "";
+  const email = args.email || args.emailAddress || "";
 
-  console.log(`Create patient: ${firstName} ${lastName}, DOB: ${dob}, gender: ${gender}`);
+  console.log(`Create patient: ${firstName} ${lastName}, DOB: ${dob}, gender: ${gender}, email: ${email ? "provided" : "none"}`);
 
   if (!firstName || !lastName || !dob || !gender) {
     const result = { status: "error", message: "Missing required fields to create patient record." };
@@ -297,7 +302,7 @@ exports.handler = async (event) => {
     };
   }
 
-  const result = await createPatient(firstName, lastName, dob, gender, phone);
+  const result = await createPatient(firstName, lastName, dob, gender, phone, email);
   console.log(`Create patient result for ${firstName} ${lastName}:`, result.status);
 
   return {
