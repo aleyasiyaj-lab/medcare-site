@@ -1,17 +1,9 @@
 [build]
-command = "npm run build"
-functions = "netlify/functions"
-publish = "dist"
-
-[functions]
-node_bundler = "esbuild"
+  publish = "."
+  functions = "netlify/functions"
 
 [[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
-
-[env.production]
-  [env.production.context.production.environment]
-  PVERIFY_CLIENT_ID = ""
-  PVERIFY_CLIENT_SECRET = ""
+  from = "/api/0b99a0c938"
+  to = "/.netlify/functions/eligibility"
+  status = 200
+  force = true
