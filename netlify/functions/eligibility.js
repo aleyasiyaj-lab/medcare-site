@@ -1,68 +1,88 @@
 // Medcare AWV Eligibility Check
 // Internal use only - called by Vapi voice agent during patient calls
-// Flow: pVerify Token → PatientFinder → GetPatientFinderResponse → MBIInquiry
+// Flow: pVerify Token -> PatientFinder -> GetPatientFinderResponse -> MBIInquiry
 
-const PVERIFY_BASE = "https://api.pverify.com";
+const https = require("https");
+const querystring = require("querystring");
+
+const PVERIFY_BASE = "api.pverify.com";
 const CLIENT_ID = process.env.PVERIFY_CLIENT_ID || "811ff04a-abe0-4546-87c5-ece4288ef8e4";
 const CLIENT_SECRET = process.env.PVERIFY_CLIENT_SECRET || "S1KKfZSkzg6jZHUY7SgSJZmPPmjmMg";
 const PROVIDER_LAST_NAME = "Rishmawi";
 const PROVIDER_NPI = "1437443082";
 
-function normalizeDob(dob) {
-  const s = String(dob || "").trim();
-  // YYYY-MM-DD → MM/DD/YYYY
-  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (iso) return `${iso[2]}/${iso[3]}/${iso[1]}`;
-  return s;
-}
-
-async function getPverifyToken() {
-  const body = new URLSearchParams({
-    Client_ID: CLIENT_ID,
-    Client_Secret: CLIENT_SECRET,
-    grant_type: "client_credentials",
+function httpsRequest(options, body) {
+  return new Promise((resolve, reject) => {
+    const req = https.request(options, (res) => {
+      let data = "";
+      res.on("data", (chunk) => { data += chunk; });
+      res.on("end", () => {
+        try { resolve(JSON.parse(data)); }
+        catch (e) { resolve({ _raw: data, _status: res.statusCode }); }
+      });
+    });
+    req.on("error", reject);
+    if (body) req.write(body);
+    req.end();
   });
-  const resp = await fetch(`${PVERIFY_BASE}/Token`, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: body.toString(),
-  });
-  if (!resp.ok) throw new Error(`pVerify token error: ${resp.status}`);
-  return resp.json();
-}
-
-async function pverifyPost(path, token, data) {
-  const resp = await fetch(`${PVERIFY_BASE}${path}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-      "Client-API-Id": CLIENT_ID,
-    },
-    body: JSON.stringify(data),
-  });
-  return resp.json();
-}
-
-async function pverifyGet(path, token) {
-  const resp = await fetch(`${PVERIFY_BASE}${path}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Client-API-Id": CLIENT_ID,
-    },
-  });
-  return resp.json();
 }
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-async function checkEligibility(firstName, lastName, dob) {
-  if (!CLIENT_ID || !CLIENT_SECRET) {
-    return { status: "error", message: "Eligibility service not configured." };
-  }
+function normalizeDob(dob) {
+  const s = String(dob || "").trim();
+  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (iso) return `${iso[2]}/${iso[3]}/${iso[1]}`;
+  return s;
+}
 
+async function getPverifyToken() {
+  const body = querystring.stringify({
+    Client_ID: CLIENT_ID,
+    Client_Secret: CLIENT_SECRET,
+    grant_type: "client_credentials",
+  });
+  return httpsRequest({
+    hostname: PVERIFY_BASE,
+    path: "/Token",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Length": Buffer.byteLength(body),
+    },
+  }, body);
+}
+
+async function pverifyPost(path, token, data) {
+  const body = JSON.stringify(data);
+  return httpsRequest({
+    hostname: PVERIFY_BASE,
+    path,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+      "Client-API-Id": CLIENT_ID,
+      "Content-Length": Buffer.byteLength(body),
+    },
+  }, body);
+}
+
+async function pverifyGet(path, token) {
+  return httpsRequest({
+    hostname: PVERIFY_BASE,
+    path,
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "Client-API-Id": CLIENT_ID,
+    },
+  });
+}
+
+async function checkEligibility(firstName, lastName, dob) {
   const dobFmt = normalizeDob(dob);
 
   try {
@@ -84,16 +104,16 @@ async function checkEligibility(firstName, lastName, dob) {
     if (!requestId) {
       return {
         status: "not_found",
-        message: "We were unable to locate your Medicare records with the name and date of birth provided. Could you verify the spelling of your name and your date of birth?",
+        message: "We were unable to locate your Medicare records. Could you verify the spelling of your name and date of birth?",
       };
     }
 
-    // Step 3: Wait for pVerify processing
+    // Step 3: Wait for pVerify to process (~4s per pVerify docs)
     await sleep(4000);
 
-    // Step 4: Get PatientFinder result
+    // Step 4: Get PatientFinder result - extract SSN
     const finderResult = await pverifyGet(`/api/GetPatientFinderResponse/${requestId}`, accessToken);
-    const ssn = finderResult?.Patients?.[0]?.SSN ?? null;
+    const ssn = (finderResult.Patients && finderResult.Patients[0] && finderResult.Patients[0].SSN) || null;
 
     // Step 5: MBI Inquiry
     const mbiResp = await pverifyPost("/api/MBIInquiry", accessToken, {
@@ -105,7 +125,7 @@ async function checkEligibility(firstName, lastName, dob) {
       PatientDOB: dobFmt,
     });
 
-    const mbi = mbiResp?.MBI || mbiResp?.Patients?.[0]?.MBI || null;
+    const mbi = mbiResp.MBI || (mbiResp.Patients && mbiResp.Patients[0] && mbiResp.Patients[0].MBI) || null;
 
     if (!mbi) {
       return {
@@ -114,27 +134,24 @@ async function checkEligibility(firstName, lastName, dob) {
       };
     }
 
-    // Step 6: ThoroughCare AWV history check
-    // TODO: Add ThoroughCare API call here once credentials are available
-    // For now: return eligible, flag for manual ThoroughCare confirmation by ops team
+    // Step 6: ThoroughCare AWV history check - TODO once API credentials available
+    // Currently: flag for manual ops team confirmation
     return {
       status: "eligible",
       mbi: mbi,
       message: "eligible",
-      note: "ThoroughCare check pending manual confirmation by ops team.",
     };
 
   } catch (err) {
-    console.error("Eligibility check error:", err);
+    console.error("Eligibility check error:", err.message);
     return {
       status: "error",
-      message: "There was a temporary issue checking your eligibility. Please hold while I connect you with our team.",
+      message: "There was a temporary issue verifying eligibility. Please hold while I connect you with our team.",
     };
   }
 }
 
-export const handler = async (event) => {
-  // Health check
+exports.handler = async (event) => {
   if (event.httpMethod === "GET") {
     return { statusCode: 200, body: JSON.stringify({ status: "ok" }) };
   }
@@ -146,15 +163,15 @@ export const handler = async (event) => {
   let body;
   try {
     body = JSON.parse(event.body || "{}");
-  } catch {
+  } catch (e) {
     return { statusCode: 400, body: "Invalid JSON" };
   }
 
   // Parse Vapi tool call format
-  const toolCallList = body?.message?.toolCallList || [];
+  const toolCallList = (body.message && body.message.toolCallList) || [];
   const toolCall = toolCallList[0] || {};
-  const args = toolCall?.function?.arguments || body;
-  const toolCallId = toolCall?.id || "unknown";
+  const args = (toolCall.function && toolCall.function.arguments) || body;
+  const toolCallId = toolCall.id || "unknown";
 
   const firstName = args.firstName || args.first_name || "";
   const lastName = args.lastName || args.last_name || "";
@@ -163,7 +180,7 @@ export const handler = async (event) => {
   console.log(`Eligibility check: ${firstName} ${lastName}, DOB: ${dob}`);
 
   if (!firstName || !lastName || !dob) {
-    const result = { status: "error", message: "I need your first name, last name, and date of birth to check eligibility." };
+    const result = { status: "error", message: "I need your first name, last name, and date of birth to look up your eligibility." };
     return {
       statusCode: 200,
       headers: { "Content-Type": "application/json" },
@@ -172,7 +189,7 @@ export const handler = async (event) => {
   }
 
   const result = await checkEligibility(firstName, lastName, dob);
-  console.log(`Result for ${firstName} ${lastName}:`, result);
+  console.log(`Result for ${firstName} ${lastName}:`, result.status);
 
   return {
     statusCode: 200,
