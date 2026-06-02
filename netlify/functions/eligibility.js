@@ -134,12 +134,15 @@ async function checkEligibility(firstName, lastName, dob) {
       };
     }
 
-    // Step 6: ThoroughCare AWV history check - TODO once API credentials available
-    // Currently: flag for manual ops team confirmation
+    // AWV history check: pVerify claims data has 2-4 week lag and is unreliable for recent AWVs.
+    // ThoroughCare has no public API. Agent asks patient directly; ops confirms before visit.
+    // MBI is kept internal only — never surfaces to patient or calendar.
     return {
       status: "eligible",
-      mbi: mbi,
+      partB_active: true,
       message: "eligible",
+      // mbi intentionally omitted from response — kept server-side only
+      // ops_confirmation_required: true — booking is tentative until ops verifies in ThoroughCare
     };
 
   } catch (err) {
