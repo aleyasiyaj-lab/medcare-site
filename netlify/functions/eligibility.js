@@ -3,8 +3,8 @@
 // Flow: pVerify Token → PatientFinder → GetPatientFinderResponse → MBIInquiry
 
 const PVERIFY_BASE = "https://api.pverify.com";
-const CLIENT_ID = process.env.PVERIFY_CLIENT_ID;
-const CLIENT_SECRET = process.env.PVERIFY_CLIENT_SECRET;
+const CLIENT_ID = process.env.PVERIFY_CLIENT_ID || "811ff04a-abe0-4546-87c5-ece4288ef8e4";
+const CLIENT_SECRET = process.env.PVERIFY_CLIENT_SECRET || "S1KKfZSkzg6jZHUY7SgSJZmPPmjmMg";
 const PROVIDER_LAST_NAME = "Rishmawi";
 const PROVIDER_NPI = "1437443082";
 
