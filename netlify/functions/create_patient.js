@@ -1,10 +1,12 @@
-// Medcare - Create Patient in ThoroughCare
+// Medcare - Create Patient in ThoroughCare + CTS Healthcare
 // Internal use only - called by Vapi after eligibility confirms new patient
 // Flow:
 //   1. Re-fetch MBI from pVerify (stateless - no shared state with eligibility function)
 //   2. Create Patient in ThoroughCare with name, DOB, gender, phone, AWV program flag
 //   3. Create Coverage record with MBI stored as Medicare subscriber ID
-//   4. Return ThoroughCare patient ID
+//   4. Create CustomerUser in CTS Healthcare backend
+//   5. Send health questionnaire email to patient via CTS Healthcare
+//   6. Return ThoroughCare patient ID
 
 const https = require("https");
 const querystring = require("querystring");
@@ -21,6 +23,9 @@ const TC_BASE = "api.secure.thoroughcare.com";
 const TC_CLIENT_ID = process.env.TC_CLIENT_ID;
 const TC_CLIENT_SECRET = process.env.TC_CLIENT_SECRET;
 const TC_FL_ORG_ID = "3652"; // Medcare Telehealth Inc. - Florida
+
+// CTS Healthcare backend
+const CTS_BACKEND = process.env.CTS_BACKEND_URL || "https://cts-healthcare-backend-production.up.railway.app";
 
 // ─── HTTP helpers ────────────────────────────────────────────────────────────
 
@@ -224,6 +229,85 @@ async function createTCCoverage(token, patientId, mbi) {
   return status === 200 || status === 201;
 }
 
+// ─── CTS Healthcare ───────────────────────────────────────────────────────────
+
+async function createCTSPatient(firstName, lastName, dob, gender, phone, email, tcPatientId) {
+  // Map DOB to ISO format (YYYY-MM-DD) for MongoDB
+  const dobIso = normalizeDobForTC(dob); // already returns YYYY-MM-DD
+
+  const payload = JSON.stringify({
+    firstName,
+    lastName,
+    dob: dobIso,
+    gender: normalizeGender(gender),
+    phone: normalizePhone(phone),
+    email: email ? email.trim().toLowerCase() : undefined,
+    memberId: tcPatientId, // use TC patient ID as unique member ID
+    state: "FL",
+    consentForSendingEmail: !!email,
+    status: "active",
+  });
+
+  return new Promise((resolve) => {
+    const url = new URL(`${CTS_BACKEND}/api/customer-users`);
+    const options = {
+      hostname: url.hostname,
+      path: url.pathname,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(payload),
+      },
+    };
+    const req = https.request(options, (res) => {
+      let data = "";
+      res.on("data", (chunk) => { data += chunk; });
+      res.on("end", () => {
+        try {
+          const body = JSON.parse(data);
+          if (res.statusCode === 201 || res.statusCode === 200) {
+            resolve({ id: body._id, success: true });
+          } else if (res.statusCode === 409) {
+            // Already exists - that's fine
+            resolve({ id: body._id || null, success: true, existing: true });
+          } else {
+            console.error("CTS patient creation failed:", res.statusCode, data);
+            resolve({ success: false });
+          }
+        } catch (e) {
+          resolve({ success: false });
+        }
+      });
+    });
+    req.on("error", () => resolve({ success: false }));
+    req.write(payload);
+    req.end();
+  });
+}
+
+async function sendCTSQuestionnaireEmail(ctsPatientId) {
+  if (!ctsPatientId) return false;
+  return new Promise((resolve) => {
+    const url = new URL(`${CTS_BACKEND}/api/customer-users/${ctsPatientId}/send-health-questionnaire-email`);
+    const options = {
+      hostname: url.hostname,
+      path: url.pathname,
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Content-Length": "2" },
+    };
+    const req = https.request(options, (res) => {
+      let data = "";
+      res.on("data", (chunk) => { data += chunk; });
+      res.on("end", () => {
+        resolve(res.statusCode === 200 || res.statusCode === 201);
+      });
+    });
+    req.on("error", () => resolve(false));
+    req.write("{}");
+    req.end();
+  });
+}
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function createPatient(firstName, lastName, dob, gender, phone, email) {
@@ -249,13 +333,32 @@ async function createPatient(firstName, lastName, dob, gender, phone, email) {
       await createTCCoverage(tcToken, patientId, mbi);
     }
 
+    // Create patient in CTS Healthcare + send questionnaire email (best-effort, don't block)
+    let questionnaireSent = false;
+    if (email) {
+      try {
+        const ctsResult = await createCTSPatient(firstName, lastName, dob, gender, phone, email, patientId);
+        if (ctsResult.success && ctsResult.id) {
+          questionnaireSent = await sendCTSQuestionnaireEmail(ctsResult.id);
+          console.log(`CTS patient created: ${ctsResult.id}, questionnaire email sent: ${questionnaireSent}`);
+        } else {
+          console.log("CTS patient creation skipped or failed");
+        }
+      } catch (ctsErr) {
+        console.error("CTS integration error (non-fatal):", ctsErr.message);
+      }
+    }
+
     console.log(`Created TC patient ${patientId} for ${firstName} ${lastName}, MBI: ${mbi ? "stored" : "not found"}`);
 
     return {
       status: "created",
       tc_patient_id: patientId,
       mbi_stored: !!mbi,
-      message: "Patient record created successfully.",
+      questionnaire_email_sent: questionnaireSent,
+      message: questionnaireSent
+        ? "Patient record created and health questionnaire sent to your email."
+        : "Patient record created successfully.",
     };
 
   } catch (err) {
