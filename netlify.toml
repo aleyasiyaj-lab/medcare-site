@@ -1,9 +1,14 @@
 [build]
-  publish = "."
+  command = "npm run build"
   functions = "netlify/functions"
+  publish = "public"
 
 [[redirects]]
-  from = "/api/0b99a0c938"
-  to = "/.netlify/functions/eligibility"
+  from = "/.netlify/functions/:name"
+  to = "/.netlify/functions/:name"
   status = 200
-  force = true
+
+[context.production]
+  [context.production.environment]
+    TC_CLIENT_ID = ""
+    TC_CLIENT_SECRET = ""
