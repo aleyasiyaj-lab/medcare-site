@@ -1,14 +1,16 @@
 [build]
-  command = "npm run build"
+  command = "npm install"
   functions = "netlify/functions"
-  publish = "public"
+  publish = "."
+
+# Proxy eligibility check to CTS Healthcare pVerify endpoint
+[[redirects]]
+  from = "/api/check-eligibility"
+  to = "https://cts.healthcare/.netlify/functions/check-eligibility"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/.netlify/functions/:name"
   to = "/.netlify/functions/:name"
   status = 200
-
-[context.production]
-  [context.production.environment]
-    TC_CLIENT_ID = ""
-    TC_CLIENT_SECRET = ""
