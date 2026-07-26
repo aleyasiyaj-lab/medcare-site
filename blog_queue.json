@@ -1,0 +1,357 @@
+{
+  "articles": [
+    {
+      "slug": "what-is-community-health-integration",
+      "category": "CHI",
+      "status": "published",
+      "published_date": "2026-07-23",
+      "title": "What Is Community Health Integration (CHI)? A Medicare Benefit Explained",
+      "original": true
+    },
+    {
+      "slug": "medicare-annual-wellness-visit-guide",
+      "category": "Healthcare Navigation",
+      "status": "published",
+      "published_date": "2026-07-23",
+      "title": "Medicare Annual Wellness Visit: What It Is and Why It Matters",
+      "original": true
+    },
+    {
+      "slug": "medicare-help-with-transportation-to-appointments",
+      "category": "Transportation",
+      "status": "published",
+      "published_date": "2026-07-23",
+      "title": "Medicare Help With Transportation to Medical Appointments",
+      "original": true
+    },
+    {
+      "slug": "medicare-help-affording-medications",
+      "category": "Medication Help",
+      "status": "published",
+      "published_date": "2026-07-23",
+      "title": "Can't Afford Your Medications? Medicare Help Through CHI",
+      "original": true
+    },
+    {
+      "slug": "medicare-help-for-isolated-seniors",
+      "category": "Social Isolation",
+      "status": "published",
+      "published_date": "2026-07-23",
+      "title": "Social Isolation and Medicare: How CHI Supports Isolated Seniors",
+      "original": true
+    },
+    {
+      "slug": "how-awv-and-chi-work-together",
+      "category": "CHI",
+      "status": "published",
+      "published_date": "2026-07-23",
+      "title": "How the Annual Wellness Visit and Community Health Integration Work Together",
+      "original": true
+    },
+    {
+      "slug": "care-coordination-for-seniors-on-medicare",
+      "category": "Healthcare Navigation",
+      "status": "published",
+      "published_date": "2026-07-22",
+      "title": "Care Coordination for Seniors on Medicare: What It Is and How It Helps"
+    },
+    {
+      "slug": "caregiver-burnout-and-medicare-support",
+      "category": "Caregiver Support",
+      "status": "published",
+      "title": "Caregiver Burnout and Medicare Support: What Resources Exist",
+      "published_date": "2026-07-25"
+    },
+    {
+      "slug": "elderly-parent-cant-drive-anymore-what-to-do",
+      "category": "Transportation",
+      "status": "published",
+      "title": "Elderly Parent Can't Drive Anymore: What to Do Next",
+      "published_date": "2026-07-25"
+    },
+    {
+      "slug": "elderly-parent-living-alone-help",
+      "category": "Social Isolation",
+      "status": "published",
+      "title": "Elderly Parent Living Alone: How to Get Help",
+      "published_date": "2026-07-26"
+    },
+    {
+      "slug": "elderly-parent-not-eating-properly",
+      "category": "Food Access",
+      "status": "staging",
+      "title": "Elderly Parent Not Eating Properly: What to Do"
+    },
+    {
+      "slug": "elderly-parent-rationing-pills-help",
+      "category": "Medication Help",
+      "status": "staging",
+      "title": "Elderly Parent Rationing Pills: How to Get Help"
+    },
+    {
+      "slug": "food-insecurity-among-seniors-on-medicare",
+      "category": "Food Access",
+      "status": "staging",
+      "title": "Food Insecurity Among Seniors on Medicare: The Hidden Problem"
+    },
+    {
+      "slug": "free-or-low-cost-prescriptions-for-seniors",
+      "category": "Medication Help",
+      "status": "staging",
+      "title": "Free or Low-Cost Prescriptions for Seniors: Options Available"
+    },
+    {
+      "slug": "free-transportation-for-seniors-on-medicare",
+      "category": "Transportation",
+      "status": "staging",
+      "title": "Free Transportation for Seniors on Medicare: Options and Resources"
+    },
+    {
+      "slug": "help-for-elderly-with-no-family-nearby",
+      "category": "CHI",
+      "status": "staging",
+      "title": "Help for Elderly with No Family Nearby: Resources and Options"
+    },
+    {
+      "slug": "help-for-seniors-navigating-healthcare-system",
+      "category": "CHI",
+      "status": "staging",
+      "title": "Help for Seniors Navigating the Healthcare System: A Complete Guide"
+    },
+    {
+      "slug": "help-getting-food-for-elderly-seniors",
+      "category": "Food Access",
+      "status": "staging",
+      "title": "Help Getting Food for Elderly Seniors: Programs and Resources"
+    },
+    {
+      "slug": "help-paying-for-prescriptions-on-medicare",
+      "category": "Medication Help",
+      "status": "staging",
+      "title": "Help Paying for Prescriptions on Medicare: A Complete Guide"
+    },
+    {
+      "slug": "helping-elderly-parent-who-refuses-help",
+      "category": "Caregiver Support",
+      "status": "staging",
+      "title": "Helping an Elderly Parent Who Refuses Help: Strategies That Work"
+    },
+    {
+      "slug": "homebound-senior-care-options",
+      "category": "Social Isolation",
+      "status": "staging",
+      "title": "Homebound Senior Care Options: What Medicare Covers"
+    },
+    {
+      "slug": "how-care-coordination-helps-seniors",
+      "category": "Healthcare Navigation",
+      "status": "staging",
+      "title": "How Care Coordination Helps Seniors: A Caregiver\u2019s Guide"
+    },
+    {
+      "slug": "how-medicare-addresses-social-needs",
+      "category": "Social Isolation",
+      "status": "staging",
+      "title": "How Medicare Addresses Social Needs: CHI, PIN, and Care Management"
+    },
+    {
+      "slug": "how-to-get-medication-assistance-for-elderly",
+      "category": "Medication Help",
+      "status": "staging",
+      "title": "How to Get Medication Assistance for Elderly Parents"
+    },
+    {
+      "slug": "how-to-get-rides-to-doctor-appointments-for-elderly",
+      "category": "Transportation",
+      "status": "staging",
+      "title": "How to Get Rides to Doctor Appointments for Elderly Parents"
+    },
+    {
+      "slug": "how-to-help-aging-parent-get-to-appointments",
+      "category": "Healthcare Navigation",
+      "status": "staging",
+      "title": "How to Help Your Aging Parent Get to Medical Appointments"
+    },
+    {
+      "slug": "how-to-help-elderly-parent-manage-doctors",
+      "category": "Healthcare Navigation",
+      "status": "staging",
+      "title": "How to Help Your Elderly Parent Manage Multiple Doctors"
+    },
+    {
+      "slug": "how-to-help-isolated-seniors",
+      "category": "Social Isolation",
+      "status": "staging",
+      "title": "How to Help Isolated Seniors: A Guide for Caregivers"
+    },
+    {
+      "slug": "how-to-help-senior-get-groceries",
+      "category": "Food Access",
+      "status": "staging",
+      "title": "How to Help a Senior Get Groceries When They Can't Shop"
+    },
+    {
+      "slug": "how-to-keep-elderly-parent-socially-active",
+      "category": "Social Isolation",
+      "status": "staging",
+      "title": "How to Keep Your Elderly Parent Socially Active"
+    },
+    {
+      "slug": "how-to-lower-prescription-costs-for-seniors",
+      "category": "Medication Help",
+      "status": "staging",
+      "title": "How to Lower Prescription Costs for Seniors on Medicare"
+    },
+    {
+      "slug": "meals-on-wheels-and-medicare-options",
+      "category": "Food Access",
+      "status": "staging",
+      "title": "Meals on Wheels and Medicare: What's Covered and What's Not"
+    },
+    {
+      "slug": "medical-transportation-for-elderly-on-medicare",
+      "category": "Transportation",
+      "status": "staging",
+      "title": "Medical Transportation for Elderly on Medicare: What You Need to Know"
+    },
+    {
+      "slug": "medicare-and-meal-delivery-for-seniors",
+      "category": "Food Access",
+      "status": "staging",
+      "title": "Medicare and Meal Delivery for Seniors: What to Know"
+    },
+    {
+      "slug": "medicare-annual-wellness-visit-what-to-expect",
+      "category": "Healthcare Navigation",
+      "status": "staging",
+      "title": "Medicare Annual Wellness Visit: What to Expect at Your First Visit"
+    },
+    {
+      "slug": "medicare-care-management-services-explained",
+      "category": "Healthcare Navigation",
+      "status": "staging",
+      "title": "Medicare Care Management Services Explained: CHI, TCM, and AWV"
+    },
+    {
+      "slug": "medicare-covered-transportation-to-medical-appointments",
+      "category": "Transportation",
+      "status": "staging",
+      "title": "Medicare-Covered Transportation to Medical Appointments: A Guide"
+    },
+    {
+      "slug": "medicare-help-for-lonely-seniors",
+      "category": "Social Isolation",
+      "status": "staging",
+      "title": "Medicare Help for Lonely Seniors: What Services Exist"
+    },
+    {
+      "slug": "medicare-help-with-prescription-costs",
+      "category": "Medication Help",
+      "status": "staging",
+      "title": "Medicare Help with Prescription Costs: Programs and Resources"
+    },
+    {
+      "slug": "medicare-part-d-extra-help-program",
+      "category": "Medication Help",
+      "status": "staging",
+      "title": "Medicare Part D Extra Help Program: Who Qualifies"
+    },
+    {
+      "slug": "medicare-transportation-help-for-seniors",
+      "category": "Transportation",
+      "status": "staging",
+      "title": "Medicare Transportation Help for Seniors: What's Covered"
+    },
+    {
+      "slug": "medication-affordability-programs-for-seniors",
+      "category": "Medication Help",
+      "status": "staging",
+      "title": "Medication Affordability Programs for Seniors: What Exists"
+    },
+    {
+      "slug": "medication-cost-barriers-elderly-healthcare",
+      "category": "Medication Help",
+      "status": "staging",
+      "title": "Medication Cost Barriers and Elderly Healthcare: The Hidden Crisis"
+    },
+    {
+      "slug": "non-emergency-medical-transportation-medicare",
+      "category": "Transportation",
+      "status": "staging",
+      "title": "Non-Emergency Medical Transportation and Medicare: Explained"
+    },
+    {
+      "slug": "nutrition-help-for-homebound-seniors",
+      "category": "Social Isolation",
+      "status": "staging",
+      "title": "Nutrition Help for Homebound Seniors: Options and Resources"
+    },
+    {
+      "slug": "overwhelmed-by-elderly-parents-medical-appointments",
+      "category": "Healthcare Navigation",
+      "status": "staging",
+      "title": "Overwhelmed by Your Elderly Parent\u2019s Medical Appointments? Help Is Available"
+    },
+    {
+      "slug": "senior-cant-afford-medications-what-to-do",
+      "category": "Medication Help",
+      "status": "staging",
+      "title": "Senior Can't Afford Medications: What to Do Next"
+    },
+    {
+      "slug": "senior-food-assistance-programs-florida",
+      "category": "Food Access",
+      "status": "staging",
+      "title": "Senior Food Assistance Programs in Florida: A Guide"
+    },
+    {
+      "slug": "senior-loneliness-and-health-impact",
+      "category": "Social Isolation",
+      "status": "staging",
+      "title": "Senior Loneliness and Its Impact on Health: What Research Shows"
+    },
+    {
+      "slug": "senior-transportation-services-in-florida",
+      "category": "Transportation",
+      "status": "staging",
+      "title": "Senior Transportation Services in Florida: A Complete Guide"
+    },
+    {
+      "slug": "signs-your-elderly-parent-is-isolated",
+      "category": "Social Isolation",
+      "status": "staging",
+      "title": "Signs Your Elderly Parent Is Isolated: What to Watch For"
+    },
+    {
+      "slug": "signs-your-elderly-parent-needs-help",
+      "category": "Caregiver Support",
+      "status": "staging",
+      "title": "10 Signs Your Elderly Parent Needs Help: A Caregiver Checklist"
+    },
+    {
+      "slug": "social-determinants-of-health-isolation-seniors",
+      "category": "Social Isolation",
+      "status": "staging",
+      "title": "Social Isolation as a Social Determinant of Health in Seniors"
+    },
+    {
+      "slug": "social-isolation-in-elderly-health-effects",
+      "category": "Social Isolation",
+      "status": "staging",
+      "title": "Social Isolation in Elderly: Health Effects You Should Know"
+    },
+    {
+      "slug": "transportation-barriers-for-seniors-healthcare",
+      "category": "Transportation",
+      "status": "staging",
+      "title": "Transportation Barriers for Seniors: How They Affect Healthcare"
+    },
+    {
+      "slug": "what-caregivers-need-to-know-about-chi",
+      "category": "Caregiver Support",
+      "status": "staging",
+      "title": "What Caregivers Need to Know About Community Health Integration"
+    }
+  ],
+  "last_published_date": "2026-07-26"
+}
