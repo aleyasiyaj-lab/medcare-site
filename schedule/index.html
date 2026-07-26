@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedule Your No-Cost Visit | Medcare Telehealth</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<style>
+:root {
+  --green: #0d7553;
+  --green-dark: #095c40;
+  --green-light: #e8f5ef;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --bg: #f8fafc;
+  --error: #dc2626;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: #1e293b; line-height: 1.6; }
+.container { max-width: 580px; margin: 0 auto; padding: 24px 20px 60px; }
+nav { background: #fff; border-bottom: 1px solid var(--border); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo img { width: 36px; height: 36px; border-radius: 50%; }
+.nav-logo-text { font-size: 1.1rem; font-weight: 800; color: var(--green); }
+.nav-logo-text span { color: var(--muted); font-weight: 500; font-size: 0.8rem; }
+.nav-phone { color: var(--green); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.schedule-header { text-align: center; margin: 40px 0 32px; }
+.schedule-badge { display: inline-block; background: var(--green-light); color: var(--green); font-size: 0.8rem; font-weight: 600; padding: 6px 16px; border-radius: 20px; margin-bottom: 16px; }
+.schedule-header h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+.schedule-header h1 span { color: var(--green); }
+.schedule-header p { color: var(--muted); font-size: 1rem; max-width: 460px; margin: 0 auto; }
+.form-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+.form-group { margin-bottom: 22px; }
+.form-row { display: flex; gap: 16px; }
+.form-row .form-group { flex: 1; }
+label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; color: #1e293b; }
+label .req { color: var(--error); }
+input[type="text"], input[type="date"], input[type="email"], input[type="tel"], select {
+  width: 100%; padding: 12px 14px; border: 2px solid var(--border); border-radius: 8px;
+  font-size: 1rem; font-family: inherit; transition: border 0.2s; background: #fff;
+}
+input:focus, select:focus { outline: none; border-color: var(--green); }
+input::placeholder { color: #94a3b8; }
+.btn-submit {
+  width: 100%; padding: 16px; background: var(--green); color: #fff; border: none;
+  border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.2s;
+}
+.btn-submit:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(13,117,83,0.3); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.trust-row { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--muted); }
+.success-msg { display: none; text-align: center; padding: 40px 20px; }
+.success-msg.show { display: block; }
+.success-icon { width: 64px; height: 64px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; }
+.success-msg h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; }
+.success-msg p { color: var(--muted); margin-bottom: 24px; }
+.success-detail { background: var(--green-light); border-radius: 10px; padding: 16px; margin-bottom: 24px; text-align: left; }
+.success-detail strong { color: var(--green); }
+.field-error { border-color: var(--error) !important; }
+.error-text { color: var(--error); font-size: 0.8rem; margin-top: 4px; display: none; }
+.error-text.show { display: block; }
+.form-footer { text-align: center; margin-top: 20px; font-size: 0.8rem; color: var(--muted); }
+.form-footer a { color: var(--green); text-decoration: none; }
+@media (max-width: 540px) {
+  .form-row { flex-direction: column; gap: 0; }
+  .form-card { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/favicon-192x192.png" alt="Medcare">
+      <div class="nav-logo-text">Medcare<span>Telehealth</span></div>
+    </a>
+    <a href="tel:8003031766" class="nav-phone">(800) 303-1766</a>
+  </div>
+</nav>
+<div class="container">
+  <div class="schedule-header">
+    <div class="schedule-badge">No cost for eligible Medicare patients</div>
+    <h1>Schedule Your <span>No-Cost Visit</span></h1>
+    <p>Book your Annual Wellness Visit with a licensed clinician by phone or secure video. It only takes a minute.</p>
+  </div>
+  <div class="form-card" id="formCard">
+    <form id="scheduleForm" onsubmit="return submitForm(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name <span class="req">*</span></label>
+          <input type="text" id="firstName" name="firstName" placeholder="John" required>
+          <div class="error-text" id="firstNameError">Please enter your first name</div>
+        </div>
+        <div class="form-group">
+          <label>Last Name <span class="req">*</span></label>
+          <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
+          <div class="error-text" id="lastNameError">Please enter your last name</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date of Birth <span class="req">*</span></label>
+          <input type="date" id="dob" name="dob" required>
+          <div class="error-text" id="dobError">Please enter your date of birth</div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+          <div class="error-text" id="phoneError">Please enter your phone number</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address <span class="req">*</span></label>
+        <input type="email" id="email" name="email" placeholder="john.smith@email.com" required>
+        <div class="error-text" id="emailError">Please enter a valid email address</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Date <span class="req">*</span></label>
+          <input type="date" id="preferredDate" name="preferredDate" required>
+          <div class="error-text" id="dateError">Please select a preferred date</div>
+        </div>
+        <div class="form-group">
+          <label>Preferred Time <span class="req">*</span></label>
+          <select id="preferredTime" name="preferredTime" required>
+            <option value="">Select a time</option>
+            <option value="9:00 AM - 11:00 AM">9:00 AM - 11:00 AM</option>
+            <option value="11:00 AM - 1:00 PM">11:00 AM - 1:00 PM</option>
+            <option value="1:00 PM - 3:00 PM">1:00 PM - 3:00 PM</option>
+            <option value="3:00 PM - 5:00 PM">3:00 PM - 5:00 PM</option>
+          </select>
+          <div class="error-text" id="timeError">Please select a preferred time</div>
+        </div>
+      </div>
+      <button type="submit" class="btn-submit" id="submitBtn">Schedule My Visit</button>
+    </form>
+    <div class="trust-row">
+      <div class="trust-item">&#9989; Medicare-covered</div>
+      <div class="trust-item">&#9989; Phone or video</div>
+      <div class="trust-item">&#9989; Licensed clinicians</div>
+    </div>
+  </div>
+  <div class="success-msg" id="successMsg">
+    <div class="success-icon">&#9989;</div>
+    <h2>Your visit has been scheduled!</h2>
+    <p>Thank you. A confirmation email is on its way to you. Our team will contact you shortly to confirm your appointment details.</p>
+    <div class="success-detail" id="successDetail"></div>
+    <a href="/" class="btn-submit" style="display:inline-block; text-decoration:none; text-align:center; padding:14px 36px; width:auto;">Back to Home</a>
+  </div>
+  <div class="form-footer">
+    <p>By scheduling, you agree to be contacted by Medcare Telehealth regarding your appointment.<br>
+    Your information is kept private and secure. <a href="tel:8003031766">Call (800) 303-1766</a> for questions.</p>
+  </div>
+</div>
+<script>
+function validateForm() {
+  var valid = true;
+  var fields = [
+    {id:'firstName',errId:'firstNameError'},
+    {id:'lastName',errId:'lastNameError'},
+    {id:'dob',errId:'dobError'},
+    {id:'phone',errId:'phoneError'},
+    {id:'email',errId:'emailError'},
+    {id:'preferredDate',errId:'dateError'},
+    {id:'preferredTime',errId:'timeError'}
+  ];
+  fields.forEach(function(f){
+    var el=document.getElementById(f.id);
+    var err=document.getElementById(f.errId);
+    if(!el.value.trim()){el.classList.add('field-error');err.classList.add('show');valid=false;}
+    else{el.classList.remove('field-error');err.classList.remove('show');}
+  });
+  var today=new Date();today.setHours(0,0,0,0);
+  var prefDate=new Date(document.getElementById('preferredDate').value);
+  if(prefDate<today){
+    document.getElementById('preferredDate').classList.add('field-error');
+    document.getElementById('dateError').textContent='Please select a future date';
+    document.getElementById('dateError').classList.add('show');
+    valid=false;
+  }
+  var emailVal=document.getElementById('email').value.trim();
+  if(emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)){
+    document.getElementById('email').classList.add('field-error');
+    document.getElementById('emailError').textContent='Please enter a valid email address';
+    document.getElementById('emailError').classList.add('show');
+    valid=false;
+  }
+  return valid;
+}
+function submitForm(event) {
+  event.preventDefault();
+  if(!validateForm()) return false;
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.textContent='Scheduling...';
+  var firstName=document.getElementById('firstName').value.trim();
+  var lastName=document.getElementById('lastName').value.trim();
+  var dob=document.getElementById('dob').value;
+  var phone=document.getElementById('phone').value.trim();
+  var email=document.getElementById('email').value.trim();
+  var preferredDate=document.getElementById('preferredDate').value;
+  var preferredTime=document.getElementById('preferredTime').value;
+  var formattedDate=new Date(preferredDate+'T00:00:00').toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+  var payload=JSON.stringify({
+    firstName:firstName,
+    lastName:lastName,
+    dob:dob,
+    phone:phone,
+    email:email,
+    preferredDate:formattedDate,
+    preferredTime:preferredTime
+  });
+
+  fetch('/.netlify/functions/schedule-submit',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:payload
+  }).then(function(r){return r.json();}).then(function(data){
+    // Show success - confirmation email sent from outreach@medcaretelehealth.org
+    document.getElementById('formCard').style.display='none';
+    var detail=document.getElementById('successDetail');
+    detail.innerHTML='<strong>Name:</strong> '+firstName+' '+lastName+'<br><strong>Date of Birth:</strong> '+dob+'<br><strong>Phone:</strong> '+phone+'<br><strong>Email:</strong> '+email+'<br><strong>Preferred Date:</strong> '+formattedDate+'<br><strong>Preferred Time:</strong> '+preferredTime;
+    document.getElementById('successMsg').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }).catch(function(error){
+    btn.disabled=false;btn.textContent='Schedule My Visit';
+    alert('There was an issue submitting the form. Please call us at (800) 303-1766 to schedule.');
+  });
+  return false;
+}
+(function(){
+  var tomorrow=new Date();tomorrow.setDate(tomorrow.getDate()+1);
+  document.getElementById('preferredDate').setAttribute('min',tomorrow.toISOString().split('T')[0]);
+  var today=new Date().toISOString().split('T')[0];
+  document.getElementById('dob').setAttribute('max',today);
+})();
+</script>
+</body>
+</html>
