@@ -1,7 +1,6 @@
 // cts.healthcare — Medicare AWV eligibility check via pverify
-// Public-facing form endpoint. Returns eligibility status only — does NOT
-// store PHI. Phone/email are accepted but only used for follow-up contact
-// when the user has explicitly consented.
+// Public-facing form endpoint. Returns eligibility status only.
+// Also forwards eligibility results (including not eligible) to Google Sheets.
 //
 // pverify flow:
 //   1. OAuth token (client_credentials)
@@ -38,6 +37,8 @@ const CORS_HEADERS = {
   "Content-Type": "application/json",
 };
 
+const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbwMscDdI_An0kJZffw4ixm7xX-XNoiex_R83VnQ-DiCeegjQuFcmpFTgYi5oQ9HNhOHtg/exec";
+
 function httpsRequest(options, body) {
   return new Promise((resolve, reject) => {
     const req = https.request(options, (res) => {
@@ -64,6 +65,27 @@ function normalizeDob(dob) {
   const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (iso) return `${iso[2]}/${iso[3]}/${iso[1]}`;
   return s;
+}
+
+// Forward eligibility check result to Google Sheets
+function forwardToGoogleSheets(sheetData) {
+  return new Promise((resolve) => {
+    const payload = JSON.stringify(sheetData);
+    const url = new URL(GOOGLE_SHEET_WEBHOOK);
+    const options = {
+      hostname: url.hostname,
+      path: url.pathname + url.search,
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+        "Content-Length": Buffer.byteLength(payload),
+      },
+    };
+    const req = https.request(options, (res) => { res.resume(); resolve(true); });
+    req.on("error", () => resolve(false));
+    req.write(payload);
+    req.end();
+  });
 }
 
 async function getToken() {
@@ -264,7 +286,7 @@ exports.handler = async (event) => {
     };
   }
 
-  const { firstName, lastName, dob, consent } = body;
+  const { firstName, lastName, dob, phone, email, consent } = body;
 
   // Consent is required — no exceptions
   if (!consent) {
@@ -289,61 +311,69 @@ exports.handler = async (event) => {
     };
   }
 
-  // Phone/email are intentionally NOT logged or sent to pverify.
   console.log(`Eligibility check: ${firstName} ${lastName}, DOB ${dob}, consent=${consent}`);
+
+  let eligibilityStatus = "error";
+  let eligibilityReason = "";
+  let responseStatus = "error";
+  let responseMessage = "There was a temporary issue verifying eligibility. Please try again in a few minutes, or call 1-800-MEDICARE (1-800-633-4227) for direct assistance.";
 
   try {
     const result = await checkEligibility(firstName, lastName, dob);
 
     if (!result.eligible) {
       if (result.reason === "not_found") {
-        return {
-          statusCode: 200,
-          headers: CORS_HEADERS,
-          body: JSON.stringify({
-            status: "not_found",
-            message: "We were unable to locate your Medicare records. Please verify the spelling of your name and date of birth, or call 1-800-MEDICARE (1-800-633-4227) for assistance.",
-          }),
-        };
+        eligibilityStatus = "not_found";
+        eligibilityReason = result.reason;
+        responseStatus = "not_found";
+        responseMessage = "We were unable to locate your Medicare records. Please verify the spelling of your name and date of birth, or call 1-800-MEDICARE (1-800-633-4227) for assistance.";
+      } else if (result.reason === "awv_used" && result.nextEligibleDate) {
+        eligibilityStatus = "not_eligible";
+        eligibilityReason = `awv_used (next eligible: ${result.nextEligibleDate})`;
+        responseStatus = "not_eligible";
+        responseMessage = `You have active Medicare coverage, but you have already had an Annual Wellness Visit within the past 12 months. You will be eligible for your next Annual Wellness Visit on ${result.nextEligibleDate}.`;
+      } else {
+        eligibilityStatus = "not_eligible";
+        eligibilityReason = result.reason;
+        responseStatus = "not_eligible";
+        responseMessage = "We were unable to verify your eligibility for an Annual Wellness Visit at this time. The Annual Wellness Visit is covered for patients with Medicare Part B who have not had one in the past 12 months.";
       }
-      if (result.reason === "awv_used" && result.nextEligibleDate) {
-        return {
-          statusCode: 200,
-          headers: CORS_HEADERS,
-          body: JSON.stringify({
-            status: "not_eligible",
-            message: `You have active Medicare coverage, but you have already had an Annual Wellness Visit within the past 12 months. You will be eligible for your next Annual Wellness Visit on ${result.nextEligibleDate}.`,
-          }),
-        };
-      }
-      return {
-        statusCode: 200,
-        headers: CORS_HEADERS,
-        body: JSON.stringify({
-          status: "not_eligible",
-          message: "We were unable to verify your eligibility for an Annual Wellness Visit at this time. The Annual Wellness Visit is covered for patients with Medicare Part B who have not had one in the past 12 months.",
-        }),
-      };
+    } else {
+      eligibilityStatus = "eligible";
+      eligibilityReason = result.reason;
+      responseStatus = "eligible";
+      responseMessage = "You are eligible for an Annual Wellness Visit. You have active Medicare coverage and have not had an Annual Wellness Visit in the past 12 months. To schedule one by phone or video, contact your provider.";
     }
-
-    // Eligible
-    return {
-      statusCode: 200,
-      headers: CORS_HEADERS,
-      body: JSON.stringify({
-        status: "eligible",
-        message: "You are eligible for an Annual Wellness Visit. You have active Medicare coverage and have not had an Annual Wellness Visit in the past 12 months. To schedule one by phone or video, call Medcare at (800) 303-1766.",
-      }),
-    };
   } catch (err) {
     console.error("Eligibility error:", err.message);
-    return {
-      statusCode: 200,
-      headers: CORS_HEADERS,
-      body: JSON.stringify({
-        status: "error",
-        message: "There was a temporary issue verifying eligibility. Please try again in a few minutes, or call Medcare at (800) 303-1766 for assistance.",
-      }),
-    };
+    eligibilityStatus = "error";
+    eligibilityReason = err.message;
   }
+
+  // Forward to Google Sheets — regardless of eligible or not
+  try {
+    await forwardToGoogleSheets({
+      source: "eligibility_check",
+      timestamp: new Date().toISOString(),
+      firstName: firstName || "",
+      lastName: lastName || "",
+      dob: dob || "",
+      phone: phone || "",
+      email: email || "",
+      consent: consent ? "yes" : "no",
+      eligibilityStatus: eligibilityStatus,
+      eligibilityReason: eligibilityReason,
+    });
+  } catch (err) {
+    console.error("Google Sheets error:", err.message);
+  }
+
+  return {
+    statusCode: 200,
+    headers: CORS_HEADERS,
+    body: JSON.stringify({
+      status: responseStatus,
+      message: responseMessage,
+    }),
+  };
 };
