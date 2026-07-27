@@ -3,582 +3,216 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Health Blog | Medcare Telehealth</title>
-  <meta name="description" content="Expert telehealth insights on GLP-1 weight loss, urgent care, and general health from the Medcare team." />
+  <title>Health Blog | Medcare</title>
+  <meta name="description" content="Educational articles on Medicare Annual Wellness Visits, Community Health Integration, and care coordination from the Medcare team." />
   <link rel="canonical" href="https://medcaretelehealth.org/blog/" />
+  <meta property="og:title" content="Health Blog | Medcare" />
+  <meta property="og:description" content="Educational articles on Medicare Annual Wellness Visits, Community Health Integration, and care coordination." />
+  <meta property="og:url" content="https://medcaretelehealth.org/blog/" />
+  <meta property="og:image" content="https://medcaretelehealth.org/assets/logo-black.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --blue: #2563EB; --blue-dark: #1d4ed8; --blue-light: #eff6ff; --text: #111827; --muted: #6b7280; --border: #e5e7eb; --bg-alt: #f9fafb; }
+    :root {
+      --green: #0d7553; --green-dark: #095c43; --green-light: #ecfdf5; --green-mid: #d1fae5;
+      --text: #111827; --muted: #6b7280; --border: #e5e7eb; --bg-alt: #f9fafb;
+    }
     body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; }
     a { color: inherit; text-decoration: none; }
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .nav-logo img { height: 72px; width: auto; display: block; }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%; display: flex; align-items: center; justify-content: space-between;
+      height: 80px;
+    }
+    .nav-logo img { height: 52px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--muted); }
-    .nav-links a:hover { color: var(--blue); }
-    .btn-primary { background: var(--blue) !important; color: #fff !important; padding: 11px 24px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
-    .hero { background: var(--blue-light); padding: 60px 5%; text-align: center; }
-    .hero h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
-    .hero p { color: var(--muted); font-size: 1rem; }
-    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-phone { color: var(--green) !important; font-weight: 700; }
+    .btn-primary { background: var(--green); color: #fff !important; padding: 10px 22px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+    .btn-primary:hover { background: var(--green-dark); }
+    .hero { background: var(--green-light); padding: 60px 5%; text-align: center; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .hero p { color: var(--muted); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px; padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
     .post-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.2s; }
-    .post-card:hover { box-shadow: 0 8px 32px rgba(37,99,235,0.1); transform: translateY(-3px); border-color: #bfdbfe; }
+    .post-card:hover { box-shadow: 0 8px 32px rgba(13,117,83,0.1); transform: translateY(-3px); border-color: var(--green-mid); }
     .post-card-body { padding: 24px; }
-    .post-tag { display: inline-block; background: var(--blue-light); color: var(--blue); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .post-tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
     .post-card h2 { font-size: 1.05rem; font-weight: 700; line-height: 1.4; margin-bottom: 10px; }
+    .post-card h2 a:hover { color: var(--green); }
     .post-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
     .post-meta { font-size: 0.78rem; color: var(--muted); display: flex; gap: 12px; }
-    .post-read-more { display: inline-flex; align-items: center; gap: 4px; color: var(--blue); font-weight: 600; font-size: 0.85rem; margin-top: 12px; }
-    footer { background: #111827; color: #d1d5db; padding: 32px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; margin-top: 60px; }
+    .post-read-more { display: inline-flex; align-items: center; gap: 4px; color: var(--green); font-weight: 600; font-size: 0.85rem; margin-top: 12px; }
+    .post-read-more:hover { text-decoration: underline; }
+    .cta-bar { background: var(--green); color: #fff; text-align: center; padding: 48px 5%; }
+    .cta-bar h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; }
+    .cta-bar p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 20px; }
+    .cta-bar a.btn { display: inline-block; background: #fff; color: var(--green); padding: 14px 36px; border-radius: 10px; font-weight: 700; font-size: 1rem; }
+    .cta-bar a.btn:hover { background: var(--green-light); }
+    footer { background: #111827; color: #d1d5db; padding: 32px 5%; text-align: center; font-size: 0.82rem; }
     footer a { color: #9ca3af; }
     footer a:hover { color: #fff; }
-    #posts-container .empty { text-align: center; padding: 80px 20px; color: var(--muted); }
+    footer .disclaimer { font-size: 0.78rem; color: #6b7280; max-width: 700px; margin: 12px auto 0; line-height: 1.6; }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2KQNCXRNGS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2KQNCXRNGS');
+</script>
 </head>
 <body>
 <nav>
-  <a href="/" class="nav-logo"><img src="../assets/logo-black.png" alt="Medcare" /></a>
+  <a href="/" class="nav-logo"><img src="/assets/logo-black.png" alt="Medcare.org" /></a>
   <div class="nav-links">
-    <a href="/#services">Services</a>
-    <a href="/#pricing">Pricing</a>
+    <a href="/#what-is">What We Do</a>
+    <a href="/#howitworks">How It Works</a>
+    <a href="/#cost">Cost</a>
+    <a href="/#faq">FAQ</a>
     <a href="/blog/">Blog</a>
-    <a href="tel:8352000000" style="font-weight:600;color:var(--blue);">📞 (835) 200-0000</a>
-    <a href="/#book" class="btn-primary">Book a Visit</a>
+    <a href="/check-eligibility/">Check Eligibility</a>
+    <a href="tel:8003031766" class="nav-phone">(800) 303-1766</a>
+    <a href="tel:8003031766" class="btn-primary">Call Now</a>
   </div>
 </nav>
+
 <div class="hero">
   <h1>Health Insights from Medcare</h1>
-  <p>Evidence-based articles on weight loss, telehealth, urgent care, and more.</p>
+  <p>Educational articles on Medicare Annual Wellness Visits, Community Health Integration, and care coordination.</p>
 </div>
-<div class="blog-grid" id="posts-container">
+
+<div class="blog-grid">
+  <article class="post-card">
+    <div class="post-card-body">
+      <div class="post-tag">Food Access</div>
+      <h2><a href="/blog/elderly-parent-not-eating-properly/">Elderly Parent Not Eating Properly: What to Do</a></h2>
+      <p>If your elderly parent is not eating properly, learn the warning signs, possible causes, and practical steps includin...</p>
+      <div class="post-meta"><span>2026-07-27</span><span>5 min read</span></div>
+      <a href="/blog/elderly-parent-not-eating-properly/" class="post-read-more">Read article &rarr;</a>
+    </div>
+  </article>
+  <article class="post-card">
+    <div class="post-card-body">
+      <div class="post-tag">Social Isolation</div>
+      <h2><a href="/blog/elderly-parent-living-alone-help/">Elderly Parent Living Alone: How to Get Help</a></h2>
+      <p>If your elderly parent is living alone, help is available. Learn how Medicare-covered Community Health Integration ca...</p>
+      <div class="post-meta"><span>2026-07-26</span><span>5 min read</span></div>
+      <a href="/blog/elderly-parent-living-alone-help/" class="post-read-more">Read article &rarr;</a>
+    </div>
+  </article>
+  <article class="post-card">
+    <div class="post-card-body">
+      <div class="post-tag">Transportation</div>
+      <h2><a href="/blog/elderly-parent-cant-drive-anymore-what-to-do/">Elderly Parent Can't Drive Anymore: What to Do Next</a></h2>
+      <p>When an elderly parent can't drive anymore, knowing what to do can feel overwhelming. Learn how Medicare-covered Comm...</p>
+      <div class="post-meta"><span>2026-07-25</span><span>5 min read</span></div>
+      <a href="/blog/elderly-parent-cant-drive-anymore-what-to-do/" class="post-read-more">Read article &rarr;</a>
+    </div>
+  </article>
+  <article class="post-card">
+    <div class="post-card-body">
+      <div class="post-tag">Caregiver Support</div>
+      <h2><a href="/blog/caregiver-burnout-and-medicare-support/">Caregiver Burnout and Medicare Support: What Resources Exist</a></h2>
+      <p>Caregiver burnout is real. Learn the signs and discover Medicare-covered resources like CHI that can reduce your burd...</p>
+      <div class="post-meta"><span>2026-07-25</span><span>5 min read</span></div>
+      <a href="/blog/caregiver-burnout-and-medicare-support/" class="post-read-more">Read article &rarr;</a>
+    </div>
+  </article>
+
   <div class="post-card">
     <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/online-doctor-for-chronic-condition-management/">Why an Online Doctor for Chronic Condition Management Works</a></h2>
-      <p>Discover how telehealth makes managing chronic conditions easier with consistent, convenient online doctor visits.</p>
-      <div class="post-meta"><span>2026-07-22</span><span>5 min read</span></div>
-      <a href="/blog/online-doctor-for-chronic-condition-management/" class="post-read-more">Read article &rarr;</a>
+      <div class="post-tag">Community Health Integration</div>
+      <h2><a href="/blog/what-is-community-health-integration/">What Is Community Health Integration (CHI)? A Medicare Benefit Explained</a></h2>
+      <p>CHI is a Medicare-covered service for patients whose medical care is affected by everyday barriers. Learn what CHI includes and who may benefit.</p>
+      <div class="post-meta"><span>2026-07-23</span><span>Medcare</span></div>
+      <a href="/blog/what-is-community-health-integration/" class="post-read-more">Read article &rarr;</a>
     </div>
   </div>
+
   <div class="post-card">
     <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/tirzepatide-online-doctor/">Tirzepatide Online Doctor: Safe Weight Loss Care from Home</a></h2>
-      <p>Get safe, expert-guided tirzepatide care from home with Medcare Telehealth's online doctor visits, licensed in NY and FL.</p>
-      <div class="post-meta"><span>2026-07-20</span><span>5 min read</span></div>
-      <a href="/blog/tirzepatide-online-doctor/" class="post-read-more">Read article &rarr;</a>
+      <div class="post-tag">Annual Wellness Visit</div>
+      <h2><a href="/blog/medicare-annual-wellness-visit-guide/">Medicare Annual Wellness Visit: What It Is and Why It Matters</a></h2>
+      <p>A clear guide to the Medicare Annual Wellness Visit. Learn what happens during an AWV, who is eligible, and how to complete it from home.</p>
+      <div class="post-meta"><span>2026-07-23</span><span>Medcare</span></div>
+      <a href="/blog/medicare-annual-wellness-visit-guide/" class="post-read-more">Read article &rarr;</a>
     </div>
   </div>
+
   <div class="post-card">
     <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/telehealth-uti-treatment/">Fast & Convenient Telehealth UTI Treatment | Medcare Telehealth</a></h2>
-      <p>Learn how Medcare Telehealth provides fast, private UTI treatment via video visit — no waiting room needed.</p>
-      <div class="post-meta"><span>2026-07-19</span><span>5 min read</span></div>
-      <a href="/blog/telehealth-uti-treatment/" class="post-read-more">Read article &rarr;</a>
+      <div class="post-tag">Transportation</div>
+      <h2><a href="/blog/medicare-help-with-transportation-to-appointments/">Medicare Help With Transportation to Medical Appointments</a></h2>
+      <p>If you struggle to get to your doctor's appointments, Medicare-covered CHI may help. Learn how CHI addresses transportation barriers.</p>
+      <div class="post-meta"><span>2026-07-23</span><span>Medcare</span></div>
+      <a href="/blog/medicare-help-with-transportation-to-appointments/" class="post-read-more">Read article &rarr;</a>
     </div>
   </div>
+
   <div class="post-card">
     <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/compounded-semaglutide-online/">Everything You Need to Know About Compounded Semaglutide Online</a></h2>
-      <p>Get safe, convenient access to compounded semaglutide online with Medcare Telehealth's board-certified providers.</p>
-      <div class="post-meta"><span>2026-07-18</span><span>5 min read</span></div>
-      <a href="/blog/compounded-semaglutide-online/" class="post-read-more">Read article &rarr;</a>
+      <div class="post-tag">Medication Affordability</div>
+      <h2><a href="/blog/medicare-help-affording-medications/">Can't Afford Your Medications? Medicare Help Through CHI</a></h2>
+      <p>When medication costs make it hard to follow your treatment plan, CHI may help. Learn how CHI supports patients facing medication affordability barriers.</p>
+      <div class="post-meta"><span>2026-07-23</span><span>Medcare</span></div>
+      <a href="/blog/medicare-help-affording-medications/" class="post-read-more">Read article &rarr;</a>
     </div>
   </div>
+
   <div class="post-card">
     <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/medication-refill-online-without-appointment/">Get a Medication Refill Online Without Appointment Fast</a></h2>
-      <p>Skip the waiting room and get a medication refill online without appointment through Medcare Telehealth.</p>
-      <div class="post-meta"><span>2026-07-17</span><span>5 min read</span></div>
-      <a href="/blog/medication-refill-online-without-appointment/" class="post-read-more">Read article &rarr;</a>
+      <div class="post-tag">Social Isolation</div>
+      <h2><a href="/blog/medicare-help-for-isolated-seniors/">Social Isolation and Medicare: How CHI Supports Isolated Seniors</a></h2>
+      <p>Social isolation can affect a senior's ability to manage their health. Learn how CHI may help isolated patients stay connected to care.</p>
+      <div class="post-meta"><span>2026-07-23</span><span>Medcare</span></div>
+      <a href="/blog/medicare-help-for-isolated-seniors/" class="post-read-more">Read article &rarr;</a>
     </div>
   </div>
+
   <div class="post-card">
     <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/how-much-weight-can-you-lose-on-semaglutide/">How Much Weight Can You Lose on Semaglutide? What to Expect</a></h2>
-      <p>Discover what real-world semaglutide weight loss looks like, including typical results, timelines, and key factors for success.</p>
-      <div class="post-meta"><span>2026-07-16</span><span>5 min read</span></div>
-      <a href="/blog/how-much-weight-can-you-lose-on-semaglutide/" class="post-read-more">Read article &rarr;</a>
+      <div class="post-tag">Care Coordination</div>
+      <h2><a href="/blog/how-awv-and-chi-work-together/">How the Annual Wellness Visit and Community Health Integration Work Together</a></h2>
+      <p>The AWV and CHI are designed to work together. Learn how AWV identifies barriers and CHI provides ongoing support.</p>
+      <div class="post-meta"><span>2026-07-23</span><span>Medcare</span></div>
+      <a href="/blog/how-awv-and-chi-work-together/" class="post-read-more">Read article &rarr;</a>
     </div>
   </div>
+
   <div class="post-card">
     <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/glp-1-side-effects-what-to-expect/">GLP-1 Side Effects What to Expect: Your Complete Guide</a></h2>
-      <p>Learn what GLP-1 side effects to expect, from nausea to fatigue, and how to manage them safely with expert guidance.</p>
-      <div class="post-meta"><span>2026-07-15</span><span>5 min read</span></div>
-      <a href="/blog/glp-1-side-effects-what-to-expect/" class="post-read-more">Read article &rarr;</a>
+      <div class="post-tag">Healthcare Navigation</div>
+      <h2><a href="/blog/care-coordination-for-seniors-on-medicare/">Care Coordination for Seniors on Medicare: What It Is and How It Helps</a></h2>
+      <p>Care coordination helps seniors manage multiple doctors, appointments, and treatment plans. Learn how Medicare-covered CHI provides this support.</p>
+      <div class="post-meta"><span>2026-07-23</span><span>Medcare</span></div>
+      <a href="/blog/care-coordination-for-seniors-on-medicare/" class="post-read-more">Read article &rarr;</a>
     </div>
   </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/glp-1-medication-without-insurance/">Accessing GLP-1 Medication Without Insurance: What to Know</a></h2>
-      <p>Learn how to access GLP-1 medication without insurance through telehealth and practical strategies.</p>
-      <div class="post-meta"><span>2026-07-14</span><span>5 min read</span></div>
-      <a href="/blog/glp-1-medication-without-insurance/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/pink-eye-treatment-online/">Fast & Convenient Pink Eye Treatment Online | Medcare Telehealth</a></h2>
-      <p>Learn how to get fast, effective pink eye treatment online from board-certified providers at Medcare Telehealth.</p>
-      <div class="post-meta"><span>2026-07-13</span><span>5 min read</span></div>
-      <a href="/blog/pink-eye-treatment-online/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/semaglutide-vs-tirzepatide-which-is-better/">Semaglutide vs Tirzepatide: Which Is Better for Weight Loss?</a></h2>
-      <p>Compare semaglutide and tirzepatide for weight loss with a clear, patient-focused guide from a board-certified NP at Medcare Telehealth.</p>
-      <div class="post-meta"><span>2026-07-12</span><span>5 min read</span></div>
-      <a href="/blog/semaglutide-vs-tirzepatide-which-is-better/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/telehealth-vs-urgent-care-which-is-cheaper/">Telehealth vs Urgent Care: Which Is Cheaper?</a></h2>
-      <p>Wondering if telehealth or urgent care is cheaper? Learn cost differences and when to choose virtual care.</p>
-      <div class="post-meta"><span>2026-07-11</span><span>5 min read</span></div>
-      <a href="/blog/telehealth-vs-urgent-care-which-is-cheaper/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/blood-pressure-medication-refill-telehealth/">Get a Blood Pressure Medication Refill via Telehealth Today</a></h2>
-      <p>Learn how telehealth can help you get a safe, convenient blood pressure medication refill from a board-certified NP.</p>
-      <div class="post-meta"><span>2026-07-10</span><span>5 min read</span></div>
-      <a href="/blog/blood-pressure-medication-refill-telehealth/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/ear-infection-online-doctor/">Can an Online Doctor Treat an Ear Infection? Yes, Here’s How</a></h2>
-      <p>Wondering if an online doctor can treat an ear infection? Learn when virtual care works, what to expect, and how to book a visit.</p>
-      <div class="post-meta"><span>2026-07-09</span><span>5 min read</span></div>
-      <a href="/blog/ear-infection-online-doctor/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/glp-1-side-effects-what-to-expect/">GLP-1 Side Effects: What to Expect and How to Handle Them</a></h2>
-      <p>Understand common GLP-1 side effects and how to manage them with support from Medcare Telehealth's board-certified NPs.</p>
-      <div class="post-meta"><span>2026-07-08</span><span>5 min read</span></div>
-      <a href="/blog/glp-1-side-effects-what-to-expect/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/semaglutide-vs-tirzepatide-which-is-better/">Semaglutide vs Tirzepatide: Which Is Better for Weight Loss?</a></h2>
-      <p>Compare semaglutide vs tirzepatide for weight loss: effectiveness, side effects, and cost considerations.</p>
-      <div class="post-meta"><span>2026-07-07</span><span>5 min read</span></div>
-      <a href="/blog/semaglutide-vs-tirzepatide-which-is-better/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/skin-rash-online-doctor-visit/">When to Choose a Skin Rash Online Doctor Visit</a></h2>
-      <p>Learn when an online doctor visit for a skin rash is appropriate and how Medcare Telehealth can help you get relief fast.</p>
-      <div class="post-meta"><span>2026-07-06</span><span>5 min read</span></div>
-      <a href="/blog/skin-rash-online-doctor-visit/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/how-does-telehealth-work/">How Does Telehealth Work? A Simple Guide for Patients</a></h2>
-      <p>Learn how telehealth works in simple steps—from scheduling to your virtual visit with a board-certified NP.</p>
-      <div class="post-meta"><span>2026-07-05</span><span>5 min read</span></div>
-      <a href="/blog/how-does-telehealth-work/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/lab-work-order-from-telehealth-doctor/">How to Get a Lab Work Order from a Telehealth Doctor</a></h2>
-      <p>Learn how to get a lab work order from a telehealth doctor at Medcare Telehealth—fast, convenient, and patient-focused.</p>
-      <div class="post-meta"><span>2026-07-04</span><span>5 min read</span></div>
-      <a href="/blog/lab-work-order-from-telehealth-doctor/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/telehealth-vs-in-person-pros-and-cons/">Telehealth vs In Person Pros and Cons: What’s Right for You?</a></h2>
-      <p>Weighing telehealth vs in person? This guide breaks down the pros and cons to help you choose the right care option.</p>
-      <div class="post-meta"><span>2026-07-03</span><span>5 min read</span></div>
-      <a href="/blog/telehealth-vs-in-person-pros-and-cons/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/telehealth-weight-loss-program/">Your Guide to a Safe Telehealth Weight Loss Program</a></h2>
-      <p>Explore how Medcare Telehealth’s supervised weight loss program combines expert guidance and GLP-1 options for sustainable results.</p>
-      <div class="post-meta"><span>2026-07-02</span><span>5 min read</span></div>
-      <a href="/blog/telehealth-weight-loss-program/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/online-doctor-for-chronic-condition-management/">Online Doctor for Chronic Condition Management: What to Know</a></h2>
-      <p>Discover how an online doctor for chronic condition management offers convenient, expert care from board-certified providers.</p>
-      <div class="post-meta"><span>2026-07-01</span><span>5 min read</span></div>
-      <a href="/blog/online-doctor-for-chronic-condition-management/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/pink-eye-treatment-online/">Fast & Easy Pink Eye Treatment Online | Medcare Telehealth</a></h2>
-      <p>Get fast, convenient pink eye treatment online from board-certified providers at Medcare Telehealth, serving NY and FL.</p>
-      <div class="post-meta"><span>2026-06-30</span><span>5 min read</span></div>
-      <a href="/blog/pink-eye-treatment-online/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/tirzepatide-online-doctor/">Access a Tirzepatide Online Doctor: Medcare Telehealth Guide</a></h2>
-      <p>Connect with a licensed NP for tirzepatide online through Medcare Telehealth — safe, convenient, and patient-focused weight loss care.</p>
-      <div class="post-meta"><span>2026-06-29</span><span>5 min read</span></div>
-      <a href="/blog/tirzepatide-online-doctor/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/ozempic-alternatives-online/">Ozempic Alternatives Online: Safe Options via Telehealth</a></h2>
-      <p>Considering Ozempic alternatives? Learn about safe, online options with a board-certified NP at Medcare Telehealth.</p>
-      <div class="post-meta"><span>2026-06-28</span><span>5 min read</span></div>
-      <a href="/blog/ozempic-alternatives-online/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/weight-loss-injection-prescription-telehealth/">Getting a Weight Loss Injection Prescription via Telehealth</a></h2>
-      <p>Discover how Medcare Telehealth offers convenient, virtual access to weight loss injection prescriptions for eligible patients.</p>
-      <div class="post-meta"><span>2026-06-27</span><span>5 min read</span></div>
-      <a href="/blog/weight-loss-injection-prescription-telehealth/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/telehealth-uti-treatment/">Fast & Convenient Telehealth UTI Treatment | Medcare</a></h2>
-      <p>Learn how Medcare Telehealth offers fast, convenient UTI treatment online—no waiting room needed.</p>
-      <div class="post-meta"><span>2026-06-26</span><span>5 min read</span></div>
-      <a href="/blog/telehealth-uti-treatment/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/online-urgent-care-no-insurance/">Online Urgent Care Without Insurance: Your Options</a></h2>
-      <p>Access affordable urgent care online without insurance through Medcare Telehealth's licensed providers.</p>
-      <div class="post-meta"><span>2026-06-25</span><span>5 min read</span></div>
-      <a href="/blog/online-urgent-care-no-insurance/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/ear-infection-online-doctor/">Ear Infection Online Doctor: Fast Relief at Home</a></h2>
-      <p>Learn how to get ear infection treatment from a licensed online doctor without leaving home.</p>
-      <div class="post-meta"><span>2026-06-24</span><span>5 min read</span></div>
-      <a href="/blog/ear-infection-online-doctor/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/compounded-semaglutide-online/">Compounded Semaglutide Online: What You Need to Know</a></h2>
-      <p>Explore compounded semaglutide online and how it may support your weight loss journey with personalized telehealth care.</p>
-      <div class="post-meta"><span>2026-06-22</span><span>5 min read</span></div>
-      <a href="/blog/compounded-semaglutide-online/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/strep-throat-telehealth-prescription/">Strep Throat Telehealth Prescription: Get Care Fast</a></h2>
-      <p>Get strep throat diagnosed and treated online without leaving home. Fast telehealth prescriptions available.</p>
-      <div class="post-meta"><span>2026-06-21</span><span>5 min read</span></div>
-      <a href="/blog/strep-throat-telehealth-prescription/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/online-doctor-visit-same-day/">Online Doctor Visit Same Day: Fast Care When You Need It</a></h2>
-      <p>Learn how same-day virtual doctor visits work and why they're changing healthcare access.</p>
-      <div class="post-meta"><span>2026-06-20</span><span>5 min read</span></div>
-      <a href="/blog/online-doctor-visit-same-day/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/how-much-weight-can-you-lose-on-semaglutide/">How Much Weight Can You Lose on Semaglutide?</a></h2>
-      <p>Understand realistic weight loss outcomes with semaglutide and how GLP-1 medications support your health goals.</p>
-      <div class="post-meta"><span>2026-06-19</span><span>5 min read</span></div>
-      <a href="/blog/how-much-weight-can-you-lose-on-semaglutide/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/weight-loss-injection-prescription-telehealth/">Weight Loss Injection Prescription via Telehealth</a></h2>
-      <p>Explore how weight loss injections through telehealth can support your wellness goals with expert guidance.</p>
-      <div class="post-meta"><span>2026-06-18</span><span>5 min read</span></div>
-      <a href="/blog/weight-loss-injection-prescription-telehealth/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/telehealth-weight-loss-program/">Telehealth Weight Loss Program: GLP-1 Therapy Explained</a></h2>
-      <p>Learn how telehealth weight loss programs with GLP-1 medications work and whether one might be right for you.</p>
-      <div class="post-meta"><span>2026-06-17</span><span>5 min read</span></div>
-      <a href="/blog/telehealth-weight-loss-program/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/pink-eye-treatment-online/">Pink Eye Treatment Online: Fast Care at Home</a></h2>
-      <p>Learn how to get pink eye treatment online and when to seek care from a telehealth provider.</p>
-      <div class="post-meta"><span>2026-06-16</span><span>5 min read</span></div>
-      <a href="/blog/pink-eye-treatment-online/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/telehealth-uti-treatment/">Telehealth UTI Treatment: Fast Relief at Home</a></h2>
-      <p>Learn how telehealth UTI treatment can provide fast diagnosis and relief without leaving home.</p>
-      <div class="post-meta"><span>2026-06-15</span><span>5 min read</span></div>
-      <a href="/blog/telehealth-uti-treatment/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/compounded-semaglutide-online/">Compounded Semaglutide Online: What You Need to Know</a></h2>
-      <p>Explore compounded semaglutide as a weight loss option and how telehealth makes access easier.</p>
-      <div class="post-meta"><span>2026-06-14</span><span>5 min read</span></div>
-      <a href="/blog/compounded-semaglutide-online/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/ozempic-alternatives-online/">Ozempic Alternatives Online: Your GLP-1 Options</a></h2>
-      <p>Discover effective Ozempic alternatives available through online telehealth consultations with board-certified providers.</p>
-      <div class="post-meta"><span>2026-06-13</span><span>5 min read</span></div>
-      <a href="/blog/ozempic-alternatives-online/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/skin-rash-online-doctor-visit/">Skin Rash Online Doctor Visit: Get Care Fast</a></h2>
-      <p>Discover how convenient online doctor visits can help diagnose and treat your skin rash from home.</p>
-      <div class="post-meta"><span>2026-06-12</span><span>5 min read</span></div>
-      <a href="/blog/skin-rash-online-doctor-visit/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/lab-work-order-from-telehealth-doctor/">Lab Work Order from Telehealth Doctor: What to Expect</a></h2>
-      <p>Understand how telehealth doctors order lab work and what happens next in your care.</p>
-      <div class="post-meta"><span>2026-06-11</span><span>5 min read</span></div>
-      <a href="/blog/lab-work-order-from-telehealth-doctor/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/online-prescription-for-antibiotics/">Online Prescription for Antibiotics: Fast & Convenient Care</a></h2>
-      <p>Learn how to get an antibiotic prescription online safely and conveniently through telehealth.</p>
-      <div class="post-meta"><span>2026-06-10</span><span>5 min read</span></div>
-      <a href="/blog/online-prescription-for-antibiotics/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/glp-1-cost-without-insurance/">GLP-1 Cost Without Insurance: What to Expect</a></h2>
-      <p>Understanding GLP-1 costs without insurance and finding affordable access to weight loss medication.</p>
-      <div class="post-meta"><span>2026-06-09</span><span>5 min read</span></div>
-      <a href="/blog/glp-1-cost-without-insurance/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/medication-refill-online-without-appointment/">Get Medication Refills Online Without Appointment</a></h2>
-      <p>Discover how to refill your medications online without scheduling an in-person appointment.</p>
-      <div class="post-meta"><span>2026-06-08</span><span>5 min read</span></div>
-      <a href="/blog/medication-refill-online-without-appointment/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/how-does-telehealth-work/">How Does Telehealth Work? A Complete Guide</a></h2>
-      <p>Telehealth connects you with licensed providers from home. Here's how the process works and why patients choose virtual care.</p>
-      <div class="post-meta"><span>2026-06-07</span><span>5 min read</span></div>
-      <a href="/blog/how-does-telehealth-work/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/ear-infection-online-doctor/">Ear Infection Online Doctor: Get Relief Today</a></h2>
-      <p>Learn how telehealth makes treating ear infections convenient and accessible from home.</p>
-      <div class="post-meta"><span>2026-06-06</span><span>5 min read</span></div>
-      <a href="/blog/ear-infection-online-doctor/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/yeast-infection-telehealth-prescription/">Yeast Infection Telehealth Prescription: Fast Relief Online</a></h2>
-      <p>Learn how telehealth can help you get a yeast infection prescription quickly and discreetly from home.</p>
-      <div class="post-meta"><span>2026-06-06</span><span>5 min read</span></div>
-      <a href="/blog/yeast-infection-telehealth-prescription/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/semaglutide-telehealth-prescription-online/">Getting a Semaglutide Telehealth Prescription Online</a></h2>
-      <p>Discover how semaglutide telehealth prescriptions work and how to access them conveniently online.</p>
-      <div class="post-meta"><span>2026-06-06</span><span>5 min read</span></div>
-      <a href="/blog/semaglutide-telehealth-prescription-online/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/online-doctor-for-chronic-condition-management/">Online Doctor for Chronic Condition Management</a></h2>
-      <p>Discover how telehealth makes chronic condition management easier, more affordable, and more accessible than ever before.</p>
-      <div class="post-meta"><span>2026-06-06</span><span>5 min read</span></div>
-      <a href="/blog/online-doctor-for-chronic-condition-management/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/online-sinus-infection-treatment/">Online Sinus Infection Treatment: Fast Relief at Home</a></h2>
-      <p>Learn how online sinus infection treatment can provide fast relief without leaving home.</p>
-      <div class="post-meta"><span>2026-06-05</span><span>5 min read</span></div>
-      <a href="/blog/online-sinus-infection-treatment/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/telehealth-vs-urgent-care-which-is-cheaper/">Telehealth vs Urgent Care: Which is Cheaper?</a></h2>
-      <p>Understand the cost differences between telehealth and urgent care to make the best choice for your wallet and health.</p>
-      <div class="post-meta"><span>2026-06-04</span><span>5 min read</span></div>
-      <a href="/blog/telehealth-vs-urgent-care-which-is-cheaper/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Urgent Care</div>
-      <h2><a href="/blog/online-urgent-care-no-insurance/">Online Urgent Care No Insurance: Fast Access to Care</a></h2>
-      <p>Uninsured? Online urgent care is accessible and affordable through telehealth. Get help without the ER wait.</p>
-      <div class="post-meta"><span>2026-06-03</span><span>5 min read</span></div>
-      <a href="/blog/online-urgent-care-no-insurance/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/self-pay-telehealth-affordable/">Affordable Self Pay Telehealth: Quality Care Without Insurance</a></h2>
-      <p>Quality telehealth doesn't require insurance. Discover affordable self-pay options that work for your budget and health needs.</p>
-      <div class="post-meta"><span>2026-06-02</span><span>5 min read</span></div>
-      <a href="/blog/self-pay-telehealth-affordable/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/tirzepatide-online-doctor/">Getting Tirzepatide Online: What to Know</a></h2>
-      <p>Discover how telemedicine makes accessing tirzepatide easier and more convenient for weight management.</p>
-      <div class="post-meta"><span>2026-06-01</span><span>5 min read</span></div>
-      <a href="/blog/tirzepatide-online-doctor/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/how-to-get-ozempic-online/">How to Get Ozempic Online: A Patient's Guide</a></h2>
-      <p>Discover the safe, convenient process for obtaining Ozempic online through licensed telehealth providers.</p>
-      <div class="post-meta"><span>2026-05-31</span><span>5 min read</span></div>
-      <a href="/blog/how-to-get-ozempic-online/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/glp-1-medication-without-insurance/">GLP-1 Medication Without Insurance: Your Options</a></h2>
-      <p>Don't have insurance? Discover how to access GLP-1 medications affordably through telehealth.</p>
-      <div class="post-meta"><span>2026-05-30</span><span>5 min read</span></div>
-      <a href="/blog/glp-1-medication-without-insurance/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">Telehealth</div>
-      <h2><a href="/blog/blood-pressure-medication-refill-telehealth/">Blood Pressure Medication Refill via Telehealth</a></h2>
-      <p>Learn how telehealth makes blood pressure medication refills convenient and accessible from home.</p>
-      <div class="post-meta"><span>2026-05-29</span><span>5 min read</span></div>
-      <a href="/blog/blood-pressure-medication-refill-telehealth/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <div class="post-card">
-    <div class="post-card-body">
-      <div class="post-tag">GLP-1 & Weight Loss</div>
-      <h2><a href="/blog/glp-1-side-effects-what-to-expect/">GLP-1 Side Effects: What to Expect</a></h2>
-      <p>Understanding GLP-1 side effects helps you prepare for treatment and manage symptoms effectively with expert support.</p>
-      <div class="post-meta"><span>2026-05-29</span><span>5 min read</span></div>
-      <a href="/blog/glp-1-side-effects-what-to-expect/" class="post-read-more">Read article &rarr;</a>
-    </div>
-  </div>
-  <!-- Posts injected here by SEO script -->
-  
+
 </div>
+
+<div class="cta-bar">
+  <h3>Have questions about Medicare-covered services?</h3>
+  <p>Call our team during normal business hours. We can help verify your Medicare eligibility and connect you with a licensed clinician.</p>
+  <a href="tel:8003031766" class="btn">Call (800) 303-1766</a>
+</div>
+
 <footer>
-  <span>&copy; 2026 Medcare Telehealth</span>
-  <div style="display:flex;gap:20px;align-items:center;">
-    <a href="/#faq">FAQ</a>
-    <a href="/#book">Book a Visit</a>
-    <div style="font-weight:600;">📞 <a href="tel:8352000000" style="color:#93c5fd;">(835) 200-0000</a></div>
+  <div>&copy; 2026 Medcare. All rights reserved.</div>
+  <div style="margin-top:8px;">&#9742; <a href="tel:8003031766">(800) 303-1766</a></div>
+  <div class="disclaimer">
+    Medcare is an independent telehealth healthcare provider. Medcare is not Medicare, Medicaid, CMS, a government agency, an insurance company, or a government assistance program. We do not guarantee eligibility, insurance coverage, financial assistance, community benefits, or specific clinical outcomes. For medical emergencies, call 911.
   </div>
 </footer>
 </body>
