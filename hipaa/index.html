@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HIPAA Notice of Privacy Practices | Medcare</title>
+  <meta name="description" content="HIPAA Notice of Privacy Practices for Medcare Telehealth. How we may use and disclose your protected health information under federal law." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://medcaretelehealth.org/hipaa/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="HIPAA Notice of Privacy Practices | Medcare" />
+  <meta property="og:description" content="How Medcare may use and disclose your protected health information under HIPAA." />
+  <meta property="og:url" content="https://medcaretelehealth.org/hipaa/" />
+  <meta property="og:image" content="https://medcaretelehealth.org/assets/logo-black.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2KQNCXRNGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2KQNCXRNGS');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #0d7553; --green-dark: #095c43; --green-light: #ecfdf5; --green-mid: #d1fae5;
+      --text: #111827; --muted: #6b7280; --border: #e5e7eb; --bg-alt: #f9fafb;
+      --gray: #4b5563; --radius: 12px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 52px; width: auto; display: block; }
+    .footer-brand .nav-logo img { height: 40px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-phone { color: var(--green) !important; font-weight: 700; font-size: 1rem !important; }
+    .btn-primary, a.btn-primary { background: var(--green); color: #fff !important; padding: 10px 22px; border-radius: 8px; font-weight: 600; }
+    .btn-primary:hover, a.btn-primary:hover { background: var(--green-dark); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+    .legal-hero { background: var(--green-light); padding: 60px 5% 40px; text-align: center; }
+    .legal-hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .legal-hero h1 span { color: var(--green); }
+    .legal-hero p { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1rem; }
+    .legal-updated { font-size: 0.82rem; color: var(--muted); margin-top: 16px; }
+    .legal-container { max-width: 820px; margin: 0 auto; padding: 48px 5% 72px; }
+    .legal-toc { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 40px; }
+    .legal-toc h2 { font-size: 0.9rem; font-weight: 700; color: var(--green); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+    .legal-toc ol { padding-left: 20px; }
+    .legal-toc li { margin-bottom: 6px; }
+    .legal-toc a { font-size: 0.88rem; color: var(--gray); }
+    .legal-toc a:hover { color: var(--green); }
+    .legal-section { margin-bottom: 40px; }
+    .legal-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--green-mid); }
+    .legal-section h3 { font-size: 1rem; font-weight: 600; color: var(--green-dark); margin: 20px 0 8px; }
+    .legal-section p { font-size: 0.92rem; color: var(--gray); line-height: 1.75; margin-bottom: 12px; }
+    .legal-section ul { margin: 8px 0 16px 20px; }
+    .legal-section li { font-size: 0.92rem; color: var(--gray); line-height: 1.75; margin-bottom: 6px; }
+    .legal-callout { background: var(--green-light); border: 1px solid var(--green-mid); border-radius: 8px; padding: 16px 20px; margin: 16px 0; font-size: 0.88rem; color: var(--green-dark); }
+    .legal-rights { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin: 24px 0; }
+    .legal-rights h3 { font-size: 0.95rem; font-weight: 700; color: var(--green-dark); margin-bottom: 8px; }
+    .legal-rights p { font-size: 0.88rem; color: var(--gray); margin-bottom: 6px; }
+    .legal-contact { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-top: 40px; }
+    .legal-contact h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    .legal-contact p { font-size: 0.9rem; color: var(--gray); margin-bottom: 6px; }
+    .legal-contact a { color: var(--green); font-weight: 600; }
+    footer { background: #111827; color: #d1d5db; padding: 60px 5% 30px; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 280px; }
+    .footer-col h5 { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col a { display: block; font-size: 0.85rem; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid #374151; padding-top: 28px; display: flex; flex-direction: column; gap: 12px; font-size: 0.82rem; }
+    .footer-bottom .disclaimer { font-size: 0.78rem; color: #6b7280; max-width: 700px; line-height: 1.6; }
+    @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: #fff; padding: 20px 5%; border-bottom: 1px solid var(--border); gap: 16px; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo"><img src="/assets/logo-black.png" alt="Medcare.org" /></a>
+  <div class="nav-links" id="navLinks">
+    <a href="/#what-is">What We Do</a>
+    <a href="/#howitworks">How It Works</a>
+    <a href="/#cost">Cost</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/blog/">Blog</a>
+    <a href="/check-eligibility/">Check Eligibility</a>
+    <a href="tel:8003031766" class="nav-phone">&#9742; (800) 303-1766</a>
+    <a href="/schedule/" class="btn btn-primary">Schedule Your No-Cost Visit</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="legal-hero">
+  <h1>HIPAA <span>Notice</span></h1>
+  <p>Notice of Privacy Practices. How we may use and disclose your protected health information under federal law.</p>
+  <div class="legal-updated">Effective date: July 27, 2026</div>
+</div>
+
+<div class="legal-container">
+
+  <div class="legal-callout" style="margin-bottom: 32px;">
+    <strong>This notice describes how medical information about you may be used and disclosed by Medcare and how you can access this information. Please review it carefully.</strong>
+  </div>
+
+  <nav class="legal-toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#uses">How We May Use and Disclose Your Health Information</a></li>
+      <li><a href="#other-uses">Other Permitted and Required Uses and Disclosures</a></li>
+      <li><a href="#rights">Your Rights Regarding Your Health Information</a></li>
+      <li><a href="#duties">Our Responsibilities</a></li>
+      <li><a href="#changes">Changes to This Notice</a></li>
+      <li><a href="#complaints">Complaints</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </nav>
+
+  <section class="legal-section" id="overview">
+    <h2>1. Overview</h2>
+    <p>This Notice of Privacy Practices describes how Medcare ("we," "us," or "our") may use and disclose your Protected Health Information (PHI) to carry out treatment, payment, and healthcare operations, and for other purposes that are permitted or required by law. It also describes your rights to access and control your health information.</p>
+    <p>"Protected Health Information" is information about you, including demographic information, that may identify you and that relates to your past, present, or future physical or mental health or condition and related healthcare services.</p>
+    <p>We are required by law to maintain the privacy of your Protected Health Information, to provide you with this notice of our legal duties and privacy practices, and to notify you following a breach of your unsecured Protected Health Information.</p>
+  </section>
+
+  <section class="legal-section" id="uses">
+    <h2>2. How We May Use and Disclose Your Health Information</h2>
+    <p>We may use and disclose your Protected Health Information for the following purposes:</p>
+
+    <h3>For Treatment</h3>
+    <p>We may use your health information to provide, coordinate, or manage your healthcare and related services. This may include sharing information with your primary care provider or other healthcare professionals involved in your care, with your consent. For example, a clinician may share information about your visit with your primary care physician to coordinate your treatment.</p>
+
+    <h3>For Payment</h3>
+    <p>We may use and disclose your health information so that the treatment and services you receive may be billed to and payment collected from you, an insurance company, or a third party. For example, we may need to provide Medicare with information about a service you received so it will pay us for that service.</p>
+
+    <h3>For Healthcare Operations</h3>
+    <p>We may use and disclose your health information for our healthcare operations. These uses are necessary to operate our practice and ensure that all patients receive quality care. For example, we may use health information to review our treatment and services and evaluate the performance of our staff in caring for you.</p>
+
+    <h3>Appointment Reminders and Communication</h3>
+    <p>We may use and disclose your health information to contact you with appointment reminders or information about treatment alternatives or other health-related benefits and services that may be of interest to you.</p>
+
+    <h3>Eligibility Verification</h3>
+    <p>We may use and disclose your health information to verify your eligibility for Medicare coverage or other benefits, with your consent. This may involve sharing your name, date of birth, and other identifying information with a third-party eligibility verification service.</p>
+  </section>
+
+  <section class="legal-section" id="other-uses">
+    <h2>3. Other Permitted and Required Uses and Disclosures</h2>
+    <p>We may also use or disclose your health information in the following situations:</p>
+
+    <h3>As Required by Law</h3>
+    <p>We will disclose your health information when required to do so by federal, state, or local law.</p>
+
+    <h3>Public Health Risks</h3>
+    <p>We may disclose your health information for public health activities, such as reporting disease outbreaks, births, deaths, child abuse or neglect, and adverse reactions to medications or products.</p>
+
+    <h3>Health Oversight Activities</h3>
+    <p>We may disclose your health information to a health oversight agency for activities authorized by law, such as audits, investigations, inspections, and licensure. These activities are necessary for the government to monitor the healthcare system, government programs, and compliance with civil rights laws.</p>
+
+    <h3>Lawsuits and Disputes</h3>
+    <p>We may disclose your health information in response to a court or administrative order, or in response to a subpoena, discovery request, or other lawful process.</p>
+
+    <h3>Law Enforcement</h3>
+    <p>We may disclose your health information to law enforcement officials in certain circumstances, such as to identify or locate a suspect, fugitive, material witness, or missing person.</p>
+
+    <h3>To Avert a Serious Threat to Health or Safety</h3>
+    <p>We may use and disclose your health information when necessary to prevent or lessen a serious and imminent threat to your health and safety or the health and safety of the public or another person.</p>
+
+    <h3>Family and Caregivers</h3>
+    <p>We may disclose your health information to a family member, friend, or other person involved in your care or payment for your care, provided you do not object or in an emergency situation where we use our professional judgment.</p>
+
+    <h3>Coroners, Medical Examiners, and Funeral Directors</h3>
+    <p>We may disclose your health information to a coroner or medical examiner to identify a deceased person or determine the cause of death. We may also disclose information to funeral directors as necessary to carry out their duties.</p>
+
+    <h3>Organ and Tissue Donation</h3>
+    <p>We may disclose your health information to organizations that handle organ procurement, tissue donation, and transplantation.</p>
+
+    <h3>Research</h3>
+    <p>Under certain circumstances, we may use and disclose your health information for research purposes, subject to institutional review board approval and applicable privacy protections.</p>
+
+    <h3>Workers' Compensation</h3>
+    <p>We may disclose your health information as authorized by and to the extent necessary to comply with laws relating to workers' compensation or similar programs.</p>
+
+    <h3>With Your Authorization</h3>
+    <p>Any other uses and disclosures of your health information not covered by this Notice or the laws that apply to us will be made only with your written authorization. If you provide authorization, you may revoke it at any time by writing to us. We will not use or disclose your health information for marketing purposes or sell your health information without your written authorization.</p>
+  </section>
+
+  <section class="legal-section" id="rights">
+    <h2>4. Your Rights Regarding Your Health Information</h2>
+    <p>You have the following rights regarding the health information we maintain about you:</p>
+
+    <div class="legal-rights">
+      <h3>Right to Inspect and Copy</h3>
+      <p>You have the right to inspect and obtain a copy of your health information that we maintain. Your request must be in writing. We may charge a reasonable fee for the cost of copying, mailing, or other supplies associated with your request. We may deny your request in certain limited circumstances; if we deny your request, we will provide a written explanation and tell you how to request a review of the denial.</p>
+    </div>
+
+    <div class="legal-rights">
+      <h3>Right to Amend</h3>
+      <p>You have the right to request that we amend your health information if you believe it is incorrect or incomplete. Your request must be in writing and include a reason for the request. We may deny your request if the information was not created by us, is not part of the records you are permitted to inspect and copy, or is already accurate and complete.</p>
+    </div>
+
+    <div class="legal-rights">
+      <h3>Right to an Accounting of Disclosures</h3>
+      <p>You have the right to request a list of certain disclosures we have made of your health information for purposes other than treatment, payment, healthcare operations, and certain other authorized disclosures. Your request must be in writing and state a time period (which may not be longer than six years). The first list you request within a 12-month period is free; we may charge a fee for additional lists within the same period.</p>
+    </div>
+
+    <div class="legal-rights">
+      <h3>Right to Request Restrictions</h3>
+      <p>You have the right to request a restriction or limitation on the health information we use or disclose about you for treatment, payment, or healthcare operations. You also have the right to request a limit on the health information we disclose to someone involved in your care or the payment for your care. We are not required to agree to your request, with one exception: if you pay for a service or healthcare item out-of-pocket in full, you can ask us not to share that information with your health insurer for the purpose of payment or our operations, and we will honor that request.</p>
+    </div>
+
+    <div class="legal-rights">
+      <h3>Right to Request Confidential Communications</h3>
+      <p>You have the right to request that we communicate with you about medical matters in a certain way or at a certain location. For example, you can ask that we contact you only at work or by mail. We will accommodate all reasonable requests.</p>
+    </div>
+
+    <div class="legal-rights">
+      <h3>Right to a Paper Copy of This Notice</h3>
+      <p>You have the right to receive a paper copy of this Notice at any time, even if you have previously agreed to receive it electronically. You may request a copy by contacting us using the information in Section 8 below.</p>
+    </div>
+
+    <div class="legal-rights">
+      <h3>Right to Breach Notification</h3>
+      <p>You have the right to receive written notification if there is a breach of your unsecured Protected Health Information, in accordance with applicable federal and state laws.</p>
+    </div>
+  </section>
+
+  <section class="legal-section" id="duties">
+    <h2>5. Our Responsibilities</h2>
+    <p>We are required by law to:</p>
+    <ul>
+      <li>Maintain the privacy and security of your Protected Health Information</li>
+      <li>Provide you with this Notice of our legal duties and privacy practices</li>
+      <li>Notify you following a breach of your unsecured Protected Health Information</li>
+      <li>Accommodate your reasonable requests regarding how we communicate with you</li>
+      <li>Honor your request to restrict disclosures to a health plan when you have paid for services out-of-pocket in full</li>
+      <li>Obtain your written authorization for uses and disclosures not described in this Notice or otherwise permitted by law</li>
+    </ul>
+    <p>We will not use or disclose your health information without your authorization, except as described in this Notice or as required or permitted by law.</p>
+  </section>
+
+  <section class="legal-section" id="changes">
+    <h2>6. Changes to This Notice</h2>
+    <p>We reserve the right to change this Notice. We reserve the right to make the revised or changed Notice effective for health information we already have about you as well as any information we receive in the future. We will post a copy of the current Notice on our website at medcaretelehealth.org/hipaa/. The Notice will contain the effective date.</p>
+  </section>
+
+  <section class="legal-section" id="complaints">
+    <h2>7. Complaints</h2>
+    <p>If you believe your privacy rights have been violated, you may file a complaint with us or with the Secretary of the Department of Health and Human Services, Office for Civil Rights.</p>
+    <div class="legal-callout">
+      <strong>You will not be penalized or retaliated against for filing a complaint.</strong>
+    </div>
+    <p>To file a complaint with us, contact us using the information in Section 8 below. All complaints must be submitted in writing.</p>
+    <p>To file a complaint with the Office for Civil Rights, visit <a href="https://www.hhs.gov/ocr" style="color: var(--green);">hhs.gov/ocr</a> or call 1-877-696-6775.</p>
+  </section>
+
+  <section class="legal-section" id="contact">
+    <h2>8. Contact Us</h2>
+    <div class="legal-contact">
+      <p>If you have questions about this Notice, would like to exercise any of your rights described above, or would like to request a paper copy of this Notice, please contact us:</p>
+      <p><strong>Medcare Telehealth</strong></p>
+      <p>&#9742; Phone: <a href="tel:8003031766">(800) 303-1766</a></p>
+      <p>&#9993; Email: <a href="mailto:outreach@medcaretelehealth.org">outreach@medcaretelehealth.org</a></p>
+      <p>&#127760; Website: <a href="https://medcaretelehealth.org">medcaretelehealth.org</a></p>
+      <p style="margin-top: 12px; font-size: 0.82rem; color: var(--muted);">To file a complaint with the U.S. Department of Health and Human Services Office for Civil Rights, visit <a href="https://www.hhs.gov/ocr" style="color: var(--green);">hhs.gov/ocr</a> or call 1-877-696-6775.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo"><img src="/assets/logo-white.png" alt="Medcare.org" /></div>
+      <p>Medcare is an independent telehealth healthcare provider helping Medicare patients access preventive care and care coordination services from home.</p>
+      <p style="margin-top: 12px; font-weight: 600;">&#9742; <a href="tel:8003031766" style="color: #6ee7b7;">(800) 303-1766</a></p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <a href="/#what-is">Annual Wellness Visit</a>
+      <a href="/#what-is">Community Health Integration</a>
+      <a href="/#howitworks">How It Works</a>
+    </div>
+    <div class="footer-col">
+      <h5>Resources</h5>
+      <a href="/blog/">Blog</a>
+      <a href="/check-eligibility/">Check Eligibility</a>
+      <a href="/#cost">Cost &amp; Coverage</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/qa/" style="font-size:0.78rem;color:#9ca3af;">Full Q&amp;A</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Service</a>
+      <a href="/hipaa/">HIPAA Notice</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 Medcare. All rights reserved.</div>
+    <div style="font-size:0.75rem;color:#6b7280;">&#9742; <a href="tel:8003031766" style="color:#9ca3af;">(800) 303-1766</a></div>
+    <div class="disclaimer">
+      Medcare is an independent telehealth healthcare provider. Medcare is not Medicare, Medicaid, CMS, a government agency, an insurance company, or a government assistance program. We do not guarantee eligibility, insurance coverage, financial assistance, community benefits, or specific clinical outcomes. For medical emergencies, call 911.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+</script>
+
+</body>
+</html>
