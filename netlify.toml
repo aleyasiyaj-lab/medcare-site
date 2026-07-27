@@ -3,10 +3,10 @@
   functions = "netlify/functions"
   publish = "."
 
-# Proxy eligibility check to CTS Healthcare pVerify endpoint
+# Route eligibility check to local Netlify function
 [[redirects]]
   from = "/api/check-eligibility"
-  to = "https://cts.healthcare/.netlify/functions/check-eligibility"
+  to = "/.netlify/functions/check-eligibility"
   status = 200
   force = true
 
