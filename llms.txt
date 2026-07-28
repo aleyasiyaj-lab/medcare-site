@@ -1,0 +1,39 @@
+# Medcare
+
+> Medcare helps Medicare patients access Annual Wellness Visits (AWV) and Community Health Integration (CHI) services from home. We serve seniors, caregivers, and families navigating Medicare benefits, care coordination, and social determinants of health barriers. Call (800) 303-1766.
+
+## Core Pages
+
+- [Home](https://medcaretelehealth.org/): Overview of Medcare services, Medicare AWV and CHI eligibility, how it works, costs, FAQ
+- [Check Eligibility](https://medcaretelehealth.org/check-eligibility/): Free online eligibility check for Medicare-covered services
+- [Schedule](https://medcaretelehealth.org/schedule/): Schedule an appointment with the Medcare care team
+- [Blog](https://medcaretelehealth.org/blog/): Educational articles about Medicare benefits, CHI services, and senior care
+
+## Blog Posts
+
+- [What Is Community Health Integration (CHI)?](https://medcaretelehealth.org/blog/what-is-community-health-integration/): Medicare-covered CHI benefit explained — what it includes, who qualifies, how it works
+- [How AWV and CHI Work Together](https://medcaretelehealth.org/blog/how-awv-and-chi-work-together/): How Annual Wellness Visits and Community Health Integration complement each other
+- [Medicare Annual Wellness Visit Guide](https://medcaretelehealth.org/blog/medicare-annual-wellness-visit-guide/): What happens during an AWV, what's covered, how to prepare
+- [Care Coordination for Seniors on Medicare](https://medcaretelehealth.org/blog/care-coordination-for-seniors-on-medicare/): How care coordination helps Medicare patients manage multiple providers and services
+- [Medicare Help Affording Medications](https://medcaretelehealth.org/blog/medicare-help-affording-medications/): Programs and strategies to reduce prescription drug costs on Medicare
+- [Medicare Help for Isolated Seniors](https://medcaretelehealth.org/blog/medicare-help-for-isolated-seniors/): Social isolation support through Medicare-covered services
+- [Medicare Help with Transportation to Appointments](https://medcaretelehealth.org/blog/medicare-help-with-transportation-to-appointments/): Transportation barriers and Medicare-covered solutions
+- [Caregiver Burnout and Medicare Support](https://medcaretelehealth.org/blog/caregiver-burnout-and-medicare-support/): Recognizing caregiver burnout and how Medicare services can help
+- [Elderly Parent Can't Drive Anymore](https://medcaretelehealth.org/blog/elderly-parent-cant-drive-anymore-what-to-do/): What to do when an aging parent stops driving — planning, alternatives, Medicare support
+- [Elderly Parent Living Alone](https://medcaretelehealth.org/blog/elderly-parent-living-alone-help/): Safety, support, and Medicare-covered services for seniors living alone
+- [Elderly Parent Not Eating Properly](https://medcaretelehealth.org/blog/elderly-parent-not-eating-properly/): Nutrition concerns for aging parents and how CHI services can address them
+
+## Q&A
+
+- [Full Q&A](https://medcaretelehealth.org/qa/): 565 consumer questions and answers about Medcare services, Medicare benefits, CHI eligibility, telehealth, billing, and more
+
+## Legal
+
+- [Privacy Policy](https://medcaretelehealth.org/privacy/)
+- [Terms of Service](https://medcaretelehealth.org/terms/)
+- [HIPAA Notice](https://medcaretelehealth.org/hipaa/)
+
+## Contact
+
+- Phone: (800) 303-1766
+- Website: https://medcaretelehealth.org

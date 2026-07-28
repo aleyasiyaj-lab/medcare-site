@@ -2,24 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://medcaretelehealth.org/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://medcaretelehealth.org/blog/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://medcaretelehealth.org/check-eligibility/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://medcaretelehealth.org/blog/care-coordination-for-seniors-on-medicare/</loc>
+    <loc>https://medcaretelehealth.org/blog/what-is-community-health-integration/</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -32,6 +32,12 @@
   </url>
   <url>
     <loc>https://medcaretelehealth.org/blog/medicare-annual-wellness-visit-guide/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://medcaretelehealth.org/blog/care-coordination-for-seniors-on-medicare/</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -55,30 +61,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://medcaretelehealth.org/blog/what-is-community-health-integration/</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://medcaretelehealth.org/blog/semaglutide-telehealth-prescription-online/</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://medcaretelehealth.org/blog/strep-throat-telehealth-prescription/</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://medcaretelehealth.org/blog/glp-1-cost-without-insurance/</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://medcaretelehealth.org/blog/caregiver-burnout-and-medicare-support/</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -97,8 +79,8 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://medcaretelehealth.org/blog/online-urgent-care-no-insurance/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <loc>https://medcaretelehealth.org/blog/elderly-parent-not-eating-properly/</loc>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -107,18 +89,6 @@
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://medcaretelehealth.org/blog/elderly-parent-not-eating-properly/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://medcaretelehealth.org/blog/blood-pressure-medication-refill-telehealth/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://medcaretelehealth.org/privacy/</loc>
