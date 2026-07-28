@@ -8,6 +8,16 @@
 - [Check Eligibility](https://medcaretelehealth.org/check-eligibility/): Free online eligibility check for Medicare-covered services
 - [Schedule](https://medcaretelehealth.org/schedule/): Schedule an appointment with the Medcare care team
 - [Blog](https://medcaretelehealth.org/blog/): Educational articles about Medicare benefits, CHI services, and senior care
+- [Resource Guides](https://medcaretelehealth.org/resources/): Comprehensive topic guides grouping related articles
+
+## Resource Guides (Topic Clusters)
+
+- [Food Assistance](https://medcaretelehealth.org/resources/food-assistance/): Food access, Meals on Wheels, SNAP, nutrition programs, and grocery help for seniors on Medicare
+- [Transportation](https://medcaretelehealth.org/resources/transportation/): Free rides to doctor appointments, non-emergency medical transportation, driving alternatives for seniors
+- [Medication Costs](https://medcaretelehealth.org/resources/medication-costs/): Extra Help, Medicare Part D, patient assistance programs, lowering prescription drug costs
+- [Caregiver Support](https://medcaretelehealth.org/resources/caregiver-support/): Caregiver burnout, managing appointments, care coordination, help for family caregivers
+- [Senior Isolation](https://medcaretelehealth.org/resources/senior-isolation/): Health effects of loneliness, warning signs of isolation, Medicare-covered support services
+- [Medicare Navigation](https://medcaretelehealth.org/resources/medicare-navigation/): Annual Wellness Visits, CHI, care management, understanding Medicare benefits
 
 ## Blog Posts
 
@@ -22,6 +32,10 @@
 - [Elderly Parent Can't Drive Anymore](https://medcaretelehealth.org/blog/elderly-parent-cant-drive-anymore-what-to-do/): What to do when an aging parent stops driving — planning, alternatives, Medicare support
 - [Elderly Parent Living Alone](https://medcaretelehealth.org/blog/elderly-parent-living-alone-help/): Safety, support, and Medicare-covered services for seniors living alone
 - [Elderly Parent Not Eating Properly](https://medcaretelehealth.org/blog/elderly-parent-not-eating-properly/): Nutrition concerns for aging parents and how CHI services can address them
+
+- [Help Getting Food for Elderly Seniors: Programs and Resources](https://medcaretelehealth.org/blog/help-getting-food-for-elderly-seniors/): 2026-07-28
+
+- [Meals on Wheels and Medicare: What's Covered and What's Not](https://medcaretelehealth.org/blog/meals-on-wheels-and-medicare-options/): 2026-07-28
 
 ## Q&A
 
